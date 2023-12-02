@@ -1,11 +1,5 @@
-﻿using DataStructuresAndAlgorithms_InCSharp.Classes.Lists;
-using DataStructuresAndAlgorithms_InCSharp.Classes.Queues;
+﻿using DataStructuresAndAlgorithms_InCSharp.Classes.Queues;
 using DataStructuresAndAlgorithms_InCSharp.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DataStructuresAndAlgorithms_InCSharp.Classes.Operations
 {
@@ -15,6 +9,7 @@ namespace DataStructuresAndAlgorithms_InCSharp.Classes.Operations
         {
 
         }
+
         public static void MenuQueue()
         {
             // Esta en proceso
@@ -22,10 +17,10 @@ namespace DataStructuresAndAlgorithms_InCSharp.Classes.Operations
             {
                 Console.Clear();
                 Console.WriteLine("Types of lists: \n"
-                + "1. Simple \n"
-                + "2. Circular \n"
-                + "3. Doubly linked \n"
-                + "4. Circular Doubly linked \n"
+                + "1. Regular queue \n"
+                + "2. Doubly queue \n"
+                + "3. Priority queue \n"
+                + "4. Circular queue \n"
                 + "5. Exit \n");
 
                 if (int.TryParse(Console.ReadLine(), out int opt))
