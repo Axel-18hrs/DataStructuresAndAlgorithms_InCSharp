@@ -25,6 +25,12 @@ namespace DataStructuresAndAlgorithms_InCSharp.Classes.Operations
                     + "7. Exit \n");
 
                 if (!int.TryParse(Console.ReadLine(), out int choice)) { Deffault(); continue; }
+
+                switch (choice)
+                {
+
+                }
+                Console.ReadKey();
             } while (true);
         }
 
