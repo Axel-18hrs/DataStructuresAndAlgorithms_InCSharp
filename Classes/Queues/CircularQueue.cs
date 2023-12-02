@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DataStructuresAndAlgorithms_InCSharp.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.AccessControl;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace DataStructuresAndAlgorithms_InCSharp.Classes.Queues
 {
-    internal class CircularQueue<T>
+    internal class CircularQueue<T> : ImethodQueues<T>
     {
         private T[] myCircularQueue;
         private int front;
@@ -42,6 +43,11 @@ namespace DataStructuresAndAlgorithms_InCSharp.Classes.Queues
             Console.WriteLine($"Enqueued: {value}");
         }
 
+        public void EnqueueRear(T value)
+        {
+            
+        }
+
         public void Dequeue()
         {
             if (IsEmpty())
@@ -61,6 +67,11 @@ namespace DataStructuresAndAlgorithms_InCSharp.Classes.Queues
             front = (front + 1) % capacity;
         }
 
+        public void DequeueRear()
+        {
+
+        }
+
         public void Peek()
         {
             if (IsEmpty())
@@ -72,7 +83,12 @@ namespace DataStructuresAndAlgorithms_InCSharp.Classes.Queues
             Console.WriteLine($"Front element: {myCircularQueue[front]}");
         }
 
-        public void DisplayCircularQueue()
+        public void PeekRear()
+        {
+
+        }
+
+        public void Display()
         {
             if (IsEmpty())
             {
@@ -90,11 +106,6 @@ namespace DataStructuresAndAlgorithms_InCSharp.Classes.Queues
             Console.WriteLine();
         }
 
-        public bool IsEmpty()
-        {
-            return front == -1 && rear == -1;
-        }
-
         public int Count()
         {
             if (IsEmpty())
@@ -109,5 +120,11 @@ namespace DataStructuresAndAlgorithms_InCSharp.Classes.Queues
 
             return capacity - front + rear + 1;
         }
+
+        public bool IsEmpty()
+        {
+            return front == -1 && rear == -1;
+        }
+
     }
 }

@@ -1,12 +1,22 @@
 ﻿
+using DataStructuresAndAlgorithms_InCSharp.Classes.Operations;
+using DataStructuresAndAlgorithms_InCSharp.Interfaces;
+
 namespace DataStructuresAndAlgorithms_InCSharp.Classes.Queues
 {
-    internal class PriorityQueue<T>
+    internal class PriorityQueue<T> : ImethodQueues<T>
     {
         private SortedDictionary<int, Queue<T>> myPriorityQueue = new SortedDictionary<int, Queue<T>>();
 
-        public void Enqueue(int priority, T value)
+        public void Enqueue(T value)
         {
+            Console.WriteLine("\n Nivel de prioridad deseado?");
+            if (!int.TryParse(Console.ReadLine(), out int priority))
+            {
+                OperationsQueue.Deffault();
+                return;
+            }
+
             if (!myPriorityQueue.ContainsKey(priority))
             {
                 myPriorityQueue[priority] = new Queue<T>();
@@ -15,6 +25,11 @@ namespace DataStructuresAndAlgorithms_InCSharp.Classes.Queues
             myPriorityQueue[priority].Enqueue(value);
 
             Console.WriteLine($"Enqueued with priority {priority}: {value}");
+        }
+
+        public void EnqueueRear(T priority)
+        {
+
         }
 
         public void Dequeue()
@@ -36,6 +51,11 @@ namespace DataStructuresAndAlgorithms_InCSharp.Classes.Queues
             Console.WriteLine("Priority Queue is empty. Unable to dequeue.");
         }
 
+        public void DequeueRear()
+        {
+
+        }
+
         public void Peek()
         {
             if (myPriorityQueue.Count > 0)
@@ -50,7 +70,12 @@ namespace DataStructuresAndAlgorithms_InCSharp.Classes.Queues
             Console.WriteLine("Priority Queue is empty. No elements to peek.");
         }
 
-        public void DisplayPriorityQueue()
+        public void PeekRear()
+        {
+
+        }
+
+        public void Display()
         {
             Console.Write("Priority Queue elements: ");
             foreach (var priorityGroup in myPriorityQueue)

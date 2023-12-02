@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DataStructuresAndAlgorithms_InCSharp.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace DataStructuresAndAlgorithms_InCSharp.Classes.Queues
 {
-    internal class RegularQueue<T>
+    internal class RegularQueue<T> : ImethodQueues<T>
     {
         private Queue<T> myQueue = new Queue<T>();
 
@@ -14,6 +15,11 @@ namespace DataStructuresAndAlgorithms_InCSharp.Classes.Queues
         {
             myQueue.Enqueue(value);
             Console.WriteLine($"Enqueued: {value}");
+        }
+
+        public void EnqueueRear(T value)
+        {
+
         }
 
         public void Dequeue()
@@ -28,6 +34,11 @@ namespace DataStructuresAndAlgorithms_InCSharp.Classes.Queues
             Console.WriteLine("Queue is empty. Unable to dequeue.");
         }
 
+        public void DequeueRear()
+        {
+
+        }
+
         public void Peek()
         {
             if (myQueue.Count > 0)
@@ -40,7 +51,12 @@ namespace DataStructuresAndAlgorithms_InCSharp.Classes.Queues
             Console.WriteLine("Queue is empty. No elements to peek.");
         }
 
-        public void DisplayQueue()
+        public void PeekRear()
+        {
+
+        }
+
+        public void Display()
         {
             Console.Write("Queue elements: ");
             foreach (var item in myQueue)

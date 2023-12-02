@@ -1,4 +1,6 @@
 ﻿using DataStructuresAndAlgorithms_InCSharp.Classes.Lists;
+using DataStructuresAndAlgorithms_InCSharp.Classes.Queues;
+using DataStructuresAndAlgorithms_InCSharp.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +11,7 @@ namespace DataStructuresAndAlgorithms_InCSharp.Classes.Operations
 {
     internal class OperationsQueue
     {
-        public void ALQueueOperation<T>()
+        public static void ALQueueOperation<T>(ImethodQueues<T> queue)
         {
 
         }
@@ -28,26 +30,28 @@ namespace DataStructuresAndAlgorithms_InCSharp.Classes.Operations
 
                 if (int.TryParse(Console.ReadLine(), out int opt))
                 {
+                    if (opt == 5) { return; }
+
                     switch (opt)
                     {
                         case 1:
-                            ALQueueOperation<object>(new SimpleList<object>());
+                            ALQueueOperation(new RegularQueue<object>());
                             break;
 
                         case 2:
-                            ALQueueOperation<object>(new CircularList<object>());
+                            ALQueueOperation(new DoubleQueue<object>());
                             break;
 
                         case 3:
-                            ALQueueOperation<object>(new DoublyListLinked<object>());
+                            ALQueueOperation(new PriorityQueue<object>());
                             break;
 
                         case 4:
-                            ALQueueOperation<object>(new CircularDoublyLinkedList<object>());
-                            break;
+                            Console.WriteLine("De que tamaño desea que sea su Queue?");
+                            if (!int.TryParse(Console.ReadLine(), out int lenght)) { Deffault(); continue; }
 
-                        case 5:
-                            return;
+                            ALQueueOperation(new CircularQueue<object>(lenght));
+                            break;
 
                         default:
                             Deffault();

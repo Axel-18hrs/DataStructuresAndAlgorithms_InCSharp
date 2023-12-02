@@ -1,16 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using DataStructuresAndAlgorithms_InCSharp.Interfaces;
+
 
 namespace DataStructuresAndAlgorithms_InCSharp.Classes.Queues
 {
-    internal class DoubleQueue<T>
+    internal class DoubleQueue<T> : ImethodQueues<T>
     {
         private LinkedList<T> myDeque = new LinkedList<T>();
 
-        public void EnqueueFront(T value)
+        public void Enqueue(T value)
         {
             myDeque.AddFirst(value);
             Console.WriteLine($"Enqueued at the front: {value}");
@@ -22,7 +19,7 @@ namespace DataStructuresAndAlgorithms_InCSharp.Classes.Queues
             Console.WriteLine($"Enqueued at the rear: {value}");
         }
 
-        public void DequeueFront()
+        public void Dequeue()
         {
             if (myDeque.Count > 0)
             {
@@ -48,7 +45,7 @@ namespace DataStructuresAndAlgorithms_InCSharp.Classes.Queues
             Console.WriteLine("Deque is empty. Unable to dequeue from the rear.");
         }
 
-        public void PeekFront()
+        public void Peek()
         {
             if (myDeque.Count > 0)
             {
@@ -72,7 +69,7 @@ namespace DataStructuresAndAlgorithms_InCSharp.Classes.Queues
             Console.WriteLine("Deque is empty. No elements at the rear to peek.");
         }
 
-        public void DisplayDeque()
+        public void Display()
         {
             Console.Write("Deque elements: ");
             foreach (var item in myDeque)
