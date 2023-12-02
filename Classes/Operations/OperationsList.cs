@@ -4,7 +4,7 @@ using System;
 
 namespace DataStructuresAndAlgorithms_InCSharp.Classes.Operations
 {
-    public enum OptionLists_Simple
+    public enum OptionLists
     {
         Add = 1,
         Delete = 2,
@@ -13,10 +13,10 @@ namespace DataStructuresAndAlgorithms_InCSharp.Classes.Operations
         ShowRevers = 5,
         Clear = 6
     }
+
     public static class OperationsList
     {
         private static Random r;
-
         static OperationsList()
         {
             r = new Random();
@@ -34,9 +34,50 @@ namespace DataStructuresAndAlgorithms_InCSharp.Classes.Operations
         {
             Console.Write("How many data do you want to add: ");
             int cant = int.Parse(Console.ReadLine());
+
+            Console.Write("Enter the minimum value for selecting data (default is 0): ");
+            int minon = int.TryParse(Console.ReadLine(), out int minonResult) ? minonResult : 0;
+            Console.WriteLine($"Selected value: {minon}");
+
+            Console.Write("Enter the maximum value for selecting data (default is 100): ");
+            int length = int.TryParse(Console.ReadLine(), out int lengthResult) ? lengthResult : 100;
+            Console.WriteLine($"Selected value: {length}");
+
+            if (minon > length)
+            {
+                Console.WriteLine("Error: The minimum value cannot be greater than the maximum value. Using default values.");
+                minon = 0;
+                length = 100;
+            }
+
+            if (cant > (length - minon + 1))
+            {
+                Console.WriteLine("Error: The number of data requested exceeds the available range. Using the available range.");
+                cant = length - minon + 1;
+            }
+
+            int[] data = new int[cant];
             for (int i = 0; i < cant; i++)
             {
-                yield return new Random().Next(25);
+                if (i < cant)
+                {
+                    int newValue = r.Next(minon, length + 1);
+                    if (data.Contains(newValue))
+                    {
+                        i--;
+                        continue;
+                    }
+                    data[i] = newValue;
+                }
+                else
+                {
+                    break;
+                }
+            }
+
+            for (int i = 0; i < cant; i++)
+            {
+                yield return data[i];
             }
         }
 
@@ -53,108 +94,103 @@ namespace DataStructuresAndAlgorithms_InCSharp.Classes.Operations
                     + "3. Search value \n"
                     + "4. Show list \n"
                     + "5. Show reverse \n"
-                    + "6. Clear \n");
+                    + "6. Clear \n"
+                    + "7. Exit \n");
 
                 if (int.TryParse(Console.ReadLine(), out int opti))
                 {
                     switch (opti)
                     {
-                        case (int)OptionLists_Simple.Add:
-                            do
+                        case (int)OptionLists.Add:
+                            Console.Clear();
+                            Console.WriteLine("Do you want to add data randomly? \n"
+                                + "1. Yes \n"
+                                + "2. No \n");
+                            if (int.TryParse(Console.ReadLine(), out int optio_))
                             {
-                                Console.Clear();
-                                Console.WriteLine("¿Quieres añadir datos de manera aleatoria? \n"
-                                    + "1. Si \n"
-                                    + "2. No \n");
-                                if (int.TryParse(Console.ReadLine(), out int optio))
+                                switch (optio_)
                                 {
-                                    switch (optio)
-                                    {
-                                        case 1:
-                                            AddElements(DataNumeric(), list);
-                                            break;
-                                        case 2:
-                                            // añadir la opcion de poder agregar clases de tipo persona
-                                            Console.WriteLine("Ingresa un valor: ");
-                                            list.Add(Console.ReadLine());
-                                            break;
-                                        default:
-                                            Console.WriteLine("Entrada no válida. Debe ingresar un número valido.");
-                                            continue;
-                                    }
-                                }
-                                break;
-                            } while (true);
-                            break;
-                        case (int)OptionLists_Simple.Delete:
-                            do
-                            {
-                                Console.Clear();
-                                Console.WriteLine("¿Quieres eliminar datos de manera aleatoria? \n"
-                                    + "1. Si \n"
-                                    + "2. No \n");
-                                if (int.TryParse(Console.ReadLine(), out int optio))
-                                {
-                                    switch (optio)
-                                    {
-                                        case 1:
-                                            //list.AddElements(list.DataNumeric());
-                                            AddElements(DataNumeric(), list);
-                                            break;
-                                        case 2:
-                                            Console.WriteLine("Ingresa un valor: ");
-                                            list.Add(Console.ReadLine());
-                                            break;
-                                        default:
-                                            Console.WriteLine("Entrada no válida. Debe ingresar un número valido.");
-                                            break;
-                                    }
-                                }
-                                Console.WriteLine("Ingresa un valor a remover: ");
-                                list.Delete(Console.ReadLine());
+                                    case 1:
+                                        AddElements(DataNumeric(), list);
+                                        break;
 
-                                break;
-                            } while (true);
+                                    case 2:
+                                        Console.WriteLine("Enter a value: ");
+                                        list.Add(Console.ReadLine());
+                                        break;
+
+                                    default:
+                                        Deffault();
+                                        continue;
+                                }
+                            }
+                            else { Deffault(); continue; }
                             break;
-                        case (int)OptionLists_Simple.Search:
-                            Console.WriteLine("Ingresa un valor: ");
+
+                        case (int)OptionLists.Delete:
+                            Console.Clear();
+                            Console.WriteLine("Do you want to delete data randomly? \n"
+                                + "1. Yes \n"
+                                + "2. No \n");
+                            if (int.TryParse(Console.ReadLine(), out int optio))
+                            {
+                                switch (optio)
+                                {
+                                    case 1:
+                                        list.Delete(DataNumeric());
+                                        break;
+                                    case 2:
+                                        Console.WriteLine("Enter a value: ");
+                                        list.Delete(Console.ReadLine());
+                                        break;
+                                    default:
+                                        Deffault();
+                                        continue;
+                                }
+                            } else { Deffault(); continue; }
+                            break;
+
+                        case (int)OptionLists.Search:
+                            Console.WriteLine("Enter a value: ");
                             list.Search(Console.ReadLine());
-                            Console.ReadKey();
                             break;
-                        case (int)OptionLists_Simple.Show:
+
+                        case (int)OptionLists.Show:
                             list.Show();
-                            Console.ReadKey();
                             break;
-                        case (int)OptionLists_Simple.ShowRevers:
+
+                        case (int)OptionLists.ShowRevers:
                             list.ShowRevers();
-                            Console.ReadKey();
                             break;
-                        case (int)OptionLists_Simple.Clear:
+
+                        case (int)OptionLists.Clear:
                             list.Clear();
-                            Console.ReadKey();
                             break;
+
                         case 7:
                             return;
+
                         default:
-                            Console.WriteLine("Entrada no válida. Debe ingresar un número valido.");
-                            Console.ReadKey();
-                            break;
+                            Deffault();
+                            continue;
                     }
+                    Console.ReadKey();
                 }
+                else { Deffault(); }
             } while (true);
         }
 
-        public static void menuList()
+        public static void MenuList()
         {
             do
             {
                 Console.Clear();
-                Console.WriteLine("Tipos de listas: \n"
+                Console.WriteLine("Types of lists: \n"
                 + "1. Simple \n"
                 + "2. Circular \n"
-                + "3. Doblemente enlazada \n"
-                + "4. Circular Doblemente enlazada \n"
-                + "5. Salir \n");
+                + "3. Doubly linked \n"
+                + "4. Circular Doubly linked \n"
+                + "5. Exit \n");
 
                 if (int.TryParse(Console.ReadLine(), out int opt))
                 {
@@ -180,12 +216,17 @@ namespace DataStructuresAndAlgorithms_InCSharp.Classes.Operations
                             return;
 
                         default:
-                            Console.WriteLine("Entrada no válida. Debe ingresar un número valido.");
-                            Console.ReadKey();
+                            Deffault();
                             continue;
                     }
-                }
+                } else { Deffault(); }
             } while (true);
+        }
+
+        public static void Deffault()
+        {
+            Console.WriteLine("Invalid input. Please enter a valid number.");
+            Console.ReadKey();
         }
     }
 }

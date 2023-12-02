@@ -1,28 +1,10 @@
-﻿using DataStructuresAndAlgorithms_InCSharp.Classes;
-using DataStructuresAndAlgorithms_InCSharp.Classes.Lists;
-using DataStructuresAndAlgorithms_InCSharp.Classes.Operations;
-using Listas.Interfaces;
-using System.Xml.Linq;
+﻿using DataStructuresAndAlgorithms_InCSharp.Classes.Operations;
 
 namespace DataStructuresAndAlgorithms_InCSharp
 {
-    public enum DataStructures
-    {
-        Lists = 1,
-        Stacks = 2,
-        Queue = 3,
-        Trees = 4,
-        Graphs = 5
-    }
-    
+
     internal class Program
     {
-        
-        public Program() 
-        { 
-
-        }
-
         static void Main(string[] args)
         {
             do
@@ -41,32 +23,26 @@ namespace DataStructuresAndAlgorithms_InCSharp
                     switch (option)
                     {
                         case 1:
-                            OperationsList.menuList();
+                            OperationsList.MenuList();
                             break;
-                        case (int)DataStructures.Stacks:
-                            
+                        case 2:
+                            OperationsStack.MenuStack();
                             break;
-                        case (int)DataStructures.Queue:
-                            
+                        case 3:
+                            OperationsQueue.MenuQueue();
                             break;
-                        case (int)DataStructures.Trees:
-                            
+                        case 4:
+                            OperationsTree.TreeMenu();
                             break;
-                        case (int)DataStructures.Graphs:
-                            
+                        case 5:
+                            OperationsGraph.MenuGraph();
                             break;
-                        case 0:
 
-                            break;
                         default:
-                            Console.WriteLine("Opción no válida.");
-                            break;
+                            OperationsList.Deffault();
+                            continue;
                     }
-                }
-                else
-                {
-                    Console.WriteLine("Entrada no válida. Debe ingresar un número.");
-                }
+                } else { OperationsList.Deffault(); continue; }
 
             } while (true);
         }

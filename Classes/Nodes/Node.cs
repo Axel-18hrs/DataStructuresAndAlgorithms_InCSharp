@@ -1,22 +1,19 @@
 ﻿using System;
-using System.Collections.Generic;
 
-namespace DataStructuresAndAlgorithms_InCSharp.Classes
+namespace DataStructuresAndAlgorithms_InCSharp.Classes.Nodes
 {
-    internal class DoubleNode<T> : IComparable<DoubleNode<T>> 
-    { 
-        public DoubleNode<T> Back { get; set; }
-        public DoubleNode<T> Next { get; set; }
+    public class Node<T> : IComparable<Node<T>>
+    {
+        public Node<T> Next { get; set; }
         public T Data { get; set; }
 
-        public DoubleNode(T data)
+        public Node(T d)
         {
-            Data = data;
+            Data = d;
             Next = null;
-            Back = null;
         }
 
-        public int CompareTo(DoubleNode<T> otroData)
+        public int CompareTo(Node<T> otroData)
         {
             // Caso 1: Ambos tipos son numericos
             if (EsNumero(Data) && EsNumero(otroData.Data))
@@ -85,6 +82,7 @@ namespace DataStructuresAndAlgorithms_InCSharp.Classes
 
             return 0;
         }
+
         private bool EsNumero(object value)
         {
             return value is sbyte || value is byte || value is short || value is ushort ||

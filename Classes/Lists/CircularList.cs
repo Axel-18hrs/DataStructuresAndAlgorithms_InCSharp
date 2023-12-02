@@ -1,4 +1,5 @@
-﻿using Listas.Interfaces;
+﻿using DataStructuresAndAlgorithms_InCSharp.Classes.Nodes;
+using Listas.Interfaces;
 using System;
 using System.Security.Permissions;
 
@@ -16,10 +17,10 @@ namespace DataStructuresAndAlgorithms_InCSharp.Classes.Lists
 
         public void Add(T data)
         {
-            //Caso 0: Creamos un nuevo nodo
+            // Case 0: Create a new node
             Node<T> NewNode = new Node<T>(data);
 
-            //Caso 1: Insertamso al inicio
+            // Case 1: Insert at the beginning
             if (IsEmpty())
             {
                 Head = NewNode;
@@ -28,13 +29,13 @@ namespace DataStructuresAndAlgorithms_InCSharp.Classes.Lists
                 return;
             }
 
-            //Caso 2: Impedimos datos repetidos
+            // Case 2: Prevent duplicate data
             if (Exist(NewNode.Data))
             {
                 return;
             }
 
-            //Caso 3: Colocamos el dato despues del primero
+            // Case 3: Place the data after the first node
             if (NewNode.CompareTo(Head) <= 0)
             {
                 NewNode.Next = Head;
@@ -43,7 +44,7 @@ namespace DataStructuresAndAlgorithms_InCSharp.Classes.Lists
                 return;
             }
 
-            //Caso 4: Insertamos al final si el dato es mayor
+            // Case 4: Insert at the end if the data is greater
             if (NewNode.CompareTo(LastNode) >= 0)
             {
                 LastNode.Next = NewNode;
@@ -52,7 +53,7 @@ namespace DataStructuresAndAlgorithms_InCSharp.Classes.Lists
                 return;
             }
 
-            //Caso 4: Recorremos la lista
+            // Case 5: Traverse the list
             Node<T> CurrentNode = Head;
             while (CurrentNode.Next != Head && CurrentNode.Next.CompareTo(NewNode) <= 0)
             {
@@ -65,132 +66,154 @@ namespace DataStructuresAndAlgorithms_InCSharp.Classes.Lists
 
         public void Delete(T data)
         {
-            //Caso 1: Si la lista esta vacia
+            // Case 1: If the list is empty
             if (IsEmpty())
             {
+                Console.WriteLine("Empty list");
                 return;
             }
 
-            //Caso 2: El dato esta al inicio de la lista
-            if (object.Equals(Head.Data, data))
+            // Case 2: The data is at the beginning of the list
+            if (Head.CompareTo(data) == 0)
             {
                 Head = Head.Next;
                 LastNode.Next = Head;
-                Console.WriteLine($"- Dato[{data}] Eliminado de la lista");
+                Console.WriteLine($"- Data[{data}] deleted from the list");
                 return;
-            } 
+            }
 
-            //Caso 3: Recorremos la lista
+            // Case 3: Traverse the list
             Node<T> CurrentNode = Head;
             while (CurrentNode.Next != Head && CurrentNode.Next.CompareTo(data) < 0)
             {
                 CurrentNode = CurrentNode.Next;
             }
 
-            //Caso 4: El dato esta al Final de la lista
-            if (CurrentNode.Next == LastNode && object.Equals(LastNode.Data, data))
+            // Case 4: The data is at the end of the list
+            if (CurrentNode.Next == LastNode && LastNode.CompareTo(data) == 0)
             {
                 CurrentNode.Next = CurrentNode.Next.Next;
                 LastNode = CurrentNode;
                 LastNode.Next = Head;
-                Console.WriteLine($"- Dato[{data}] Eliminado de la lista");
+                Console.WriteLine($"- Data[{data}] deleted from the list");
                 return;
             }
 
-            //Caso 5: El dato esta en X posicion de la lista
-            if (object.Equals(CurrentNode.Next.Data, data))
+            // Case 5: The data is at X position in the list
+            if (CurrentNode.Next.CompareTo(data) == 0)
             {
                 CurrentNode.Next = CurrentNode.Next.Next;
-                Console.WriteLine($"- Dato[{data}] Eliminado de la lista");
+                Console.WriteLine($"- Data[{data}] deleted from the list");
                 return;
             }
 
-            //Caso 6: No se encontro el dato
-            Console.WriteLine($"- Dato[{data}] No encontrado/eliminado de la lista");
+            // Case 6: The data was not found
+            Console.WriteLine($"- Data[{data}] not found/deleted from the list");
         }
 
         public void Search(T data)
         {
-            //Caso 1: Si la lista esta vacia
+            // Case 1: If the list is empty
             if (IsEmpty())
             {
+                Console.WriteLine("Empty list");
                 return;
             }
 
-            //Case 2: Si el dato esta al inicio de la lista
-            if (object.Equals(Head.Data, data))
+            // Case 2: If the data is at the beginning of the list
+            if (Head.CompareTo(data) == 0)
             {
-                Console.WriteLine($"- Dato[{data}] Existe en la lista");
+                Console.WriteLine($"- Data[{data}] exists in the list");
                 return;
             }
 
-            //Caso 3: Recorremos la lista
+            // Case 3: Traverse the list
             Node<T> CurrentNode = Head;
-            while (CurrentNode.Next != Head && CurrentNode.Next.CompareTo(data) < 0)
+            while (CurrentNode.Next != Head && CurrentNode.CompareTo(data) < 0)
             {
                 CurrentNode = CurrentNode.Next;
             }
 
-            //Caso 4: El dato ingresado existe X posicion
-            if (object.Equals(CurrentNode.Next.Data, data))
+            // Case 4: The entered data exists at X position
+            if (CurrentNode.CompareTo(data) == 0)
             {
-                Console.WriteLine($"- Dato[{data}] Existe en la lista");
+                Console.WriteLine($"- Data[{data}] exists in the list");
                 return;
             }
 
-            //Caso 5: No existe el dato
-            Console.WriteLine($"- Dato[{data}] No Existe en la lista ");
+            // Case 5: The data does not exist
+            Console.WriteLine($"- Data[{data}] does not exist in the list ");
         }
 
         public void Show()
         {
-            //Caso 1: Comprobamos si al lista esta vacia
+            // Case 1: Check if the list is empty
             if (IsEmpty())
             {
-                Console.WriteLine("Lista vacia");
+                Console.WriteLine("Empty list");
                 return;
             }
-            //Caso 2: Recorremos la lista
+
+            // Case 2: Traverse the list
             Node<T> CurrentNode = Head;
             int i = 0;
-            Console.WriteLine("=== Mi lista Circular ===");
+            Console.WriteLine("=== My Circular List ===");
             do
             {
-                Console.WriteLine($"- Nodo[{i}] y dato: " + CurrentNode.Data);
+                Console.WriteLine($"- Node[{i}] and data: " + (CurrentNode.Data is Person ? CurrentNode.Data.ToString() : CurrentNode.Data));
                 CurrentNode = CurrentNode.Next;
                 i++;
             } while (CurrentNode != Head);
         }
 
-        public void ShowRevers() { }
+        public void ShowRevers()
+        {
+            Stack<T> stack = new Stack<T>();
+            Node<T> CurrentNode = Head;
+            int i = 0;
+            do
+            {
+                i++;
+                stack.Push(CurrentNode.Data);
+                CurrentNode = CurrentNode.Next;
+            } while (CurrentNode != Head);
+
+            // Create a copy of the stack before iterating
+            T[] stackArray = stack.ToArray();
+
+            foreach (T node in stackArray)
+            {
+                Console.WriteLine($"- Node[{--i}] and data: " + (node is Person ? node.ToString() : node.ToString()));
+            }
+        }
 
         public bool Exist(T data)
         {
-            //Caso 1: Si la lista esta vacia
+            // Case 1: If the list is empty
             if (IsEmpty())
             {
                 return false;
             }
 
-            //Caso 2: Si dato ya existe al inicio
-            if (object.Equals(Head.Data, data))
+            // Case 2: If the data already exists at the beginning
+            if (Head.CompareTo(data) == 0)
             {
                 return true;
             }
 
-            //Caso 3: Recorremos la lista
+            // Case 3: Traverse the list
             Node<T> CurrentNode = Head;
-            while (CurrentNode.Next != Head && !object.Equals(CurrentNode.Data, data))
+            while (CurrentNode.Next != Head && CurrentNode.CompareTo(data) < 0)
             {
                 CurrentNode = CurrentNode.Next;
             }
 
-            //Caso 4: Si dato ya existe al en X posicion/ o al final
-            if (object.Equals(CurrentNode.Data, data))
+            // Case 4: If the data already exists at X position / or at the end
+            if (CurrentNode.CompareTo(data) == 0)
             {
                 return true;
             }
-            //Caso 5: El dato no existe en la lista
+            // Case 5: The data does not exist in the list
             return false;
         }
 
