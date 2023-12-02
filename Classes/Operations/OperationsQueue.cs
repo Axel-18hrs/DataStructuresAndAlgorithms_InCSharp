@@ -1,4 +1,5 @@
-﻿using DataStructuresAndAlgorithms_InCSharp.Classes.Queues;
+﻿using DataStructuresAndAlgorithms_InCSharp.Classes.Lists;
+using DataStructuresAndAlgorithms_InCSharp.Classes.Queues;
 using DataStructuresAndAlgorithms_InCSharp.Interfaces;
 
 namespace DataStructuresAndAlgorithms_InCSharp.Classes.Operations
@@ -7,12 +8,28 @@ namespace DataStructuresAndAlgorithms_InCSharp.Classes.Operations
     {
         public static void ALQueueOperation<T>(ImethodQueues<T> queue)
         {
+            // Esta en proceso
+            string queueTypeMessage = queue is RegularQueue<T> ? "Regular" : queue is CircularList<T> ? "Double" :
+                                    queue is DoublyListLinked<T> ? "Priority" : "Circle";
 
+            do
+            {
+                Console.Clear();
+                Console.WriteLine($"{queueTypeMessage} queue \n"
+                    + "1. Add value \n"
+                    + "2. Delete value \n"
+                    + "3. Search value \n"
+                    + "4. Show list \n"
+                    + "5. Show reverse \n"
+                    + "6. Clear \n"
+                    + "7. Exit \n");
+
+                if (!int.TryParse(Console.ReadLine(), out int choice)) { Deffault(); continue; }
+            } while (true);
         }
 
         public static void MenuQueue()
         {
-            // Esta en proceso
             do
             {
                 Console.Clear();

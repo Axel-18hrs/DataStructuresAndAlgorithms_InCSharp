@@ -84,7 +84,7 @@ namespace DataStructuresAndAlgorithms_InCSharp.Classes.Operations
         public static void AListOperation<T>(ImethodLists<object> list)
         {
             string listTypeMessage = list is SimpleList<T> ? "Simple" : list is CircularList<T> ? "Circular" :
-                                    list is DoublyListLinked<T> ? "Doubly" : list is CircularDoublyLinkedList<T> ? "Doubly circle" : "Unknown";
+                                    list is DoublyListLinked<T> ? "Doubly" : "Doubly circle";
             do
             {
                 Console.Clear();
@@ -97,86 +97,79 @@ namespace DataStructuresAndAlgorithms_InCSharp.Classes.Operations
                     + "6. Clear \n"
                     + "7. Exit \n");
 
-                if (int.TryParse(Console.ReadLine(), out int opti))
+                if (!int.TryParse(Console.ReadLine(), out int opti)) { Deffault(); continue; }
+
+                switch (opti)
                 {
-                    switch (opti)
-                    {
-                        case (int)OptionLists.Add:
-                            Console.Clear();
-                            Console.WriteLine("Do you want to add data randomly? \n"
-                                + "1. Yes \n"
-                                + "2. No \n");
-                            if (int.TryParse(Console.ReadLine(), out int optio_))
-                            {
-                                switch (optio_)
-                                {
-                                    case 1:
-                                        AddElements(DataNumeric(), list);
-                                        break;
+                    case (int)OptionLists.Add:
+                        Console.Clear();
+                        Console.WriteLine("Do you want to add data randomly? \n"
+                            + "1. Yes \n"
+                            + "2. No \n");
+                        if (!int.TryParse(Console.ReadLine(), out int optio_)) { Deffault(); continue; }
 
-                                    case 2:
-                                        Console.WriteLine("Enter a value: ");
-                                        list.Add(Console.ReadLine());
-                                        break;
+                        switch (optio_)
+                        {
+                            case 1:
+                                AddElements(DataNumeric(), list);
+                                continue;
 
-                                    default:
-                                        Deffault();
-                                        continue;
-                                }
-                            }
-                            else { Deffault(); continue; }
-                            break;
+                            case 2:
+                                Console.WriteLine("Enter a value: ");
+                                list.Add(Console.ReadLine());
+                                continue;
 
-                        case (int)OptionLists.Delete:
-                            Console.Clear();
-                            Console.WriteLine("Do you want to delete data randomly? \n"
-                                + "1. Yes \n"
-                                + "2. No \n");
-                            if (int.TryParse(Console.ReadLine(), out int optio))
-                            {
-                                switch (optio)
-                                {
-                                    case 1:
-                                        list.Delete(DataNumeric());
-                                        break;
-                                    case 2:
-                                        Console.WriteLine("Enter a value: ");
-                                        list.Delete(Console.ReadLine());
-                                        break;
-                                    default:
-                                        Deffault();
-                                        continue;
-                                }
-                            } else { Deffault(); continue; }
-                            break;
+                            default:
+                                Deffault();
+                                continue;
+                        }
 
-                        case (int)OptionLists.Search:
-                            Console.WriteLine("Enter a value: ");
-                            list.Search(Console.ReadLine());
-                            break;
+                    case (int)OptionLists.Delete:
+                        Console.Clear();
+                        Console.WriteLine("Do you want to delete data randomly? \n"
+                            + "1. Yes \n"
+                            + "2. No \n");
+                        if (!int.TryParse(Console.ReadLine(), out int optio)) { Deffault(); continue; }
 
-                        case (int)OptionLists.Show:
-                            list.Show();
-                            break;
+                        switch (optio)
+                        {
+                            case 1:
+                                list.Delete(DataNumeric());
+                                continue;
+                            case 2:
+                                Console.WriteLine("Enter a value: ");
+                                list.Delete(Console.ReadLine());
+                                continue;
+                            default:
+                                Deffault();
+                                continue;
+                        }
 
-                        case (int)OptionLists.ShowRevers:
-                            list.ShowRevers();
-                            break;
+                    case (int)OptionLists.Search:
+                        Console.WriteLine("Enter a value: ");
+                        list.Search(Console.ReadLine());
+                        continue;
 
-                        case (int)OptionLists.Clear:
-                            list.Clear();
-                            break;
+                    case (int)OptionLists.Show:
+                        list.Show();
+                        break;
 
-                        case 7:
-                            return;
+                    case (int)OptionLists.ShowRevers:
+                        list.ShowRevers();
+                        break;
 
-                        default:
-                            Deffault();
-                            continue;
-                    }
-                    Console.ReadKey();
+                    case (int)OptionLists.Clear:
+                        list.Clear();
+                        continue;
+
+                    case 7:
+                        return;
+
+                    default:
+                        Deffault();
+                        continue;
                 }
-                else { Deffault(); }
+                Console.ReadKey();
             } while (true);
         }
 
@@ -192,34 +185,33 @@ namespace DataStructuresAndAlgorithms_InCSharp.Classes.Operations
                 + "4. Circular Doubly linked \n"
                 + "5. Exit \n");
 
-                if (int.TryParse(Console.ReadLine(), out int opt))
+                if (!int.TryParse(Console.ReadLine(), out int opt)) { Deffault(); continue; }
+
+                switch (opt)
                 {
-                    switch (opt)
-                    {
-                        case 1:
-                            AListOperation<object>(new SimpleList<object>());
-                            break;
+                    case 1:
+                        AListOperation<object>(new SimpleList<object>());
+                        break;
 
-                        case 2:
-                            AListOperation<object>(new CircularList<object>());
-                            break;
+                    case 2:
+                        AListOperation<object>(new CircularList<object>());
+                        break;
 
-                        case 3:
-                            AListOperation<object>(new DoublyListLinked<object>());
-                            break;
+                    case 3:
+                        AListOperation<object>(new DoublyListLinked<object>());
+                        break;
 
-                        case 4:
-                            AListOperation<object>(new CircularDoublyLinkedList<object>());
-                            break;
+                    case 4:
+                        AListOperation<object>(new CircularDoublyLinkedList<object>());
+                        break;
 
-                        case 5:
-                            return;
+                    case 5:
+                        return;
 
-                        default:
-                            Deffault();
-                            continue;
-                    }
-                } else { Deffault(); }
+                    default:
+                        Deffault();
+                        continue;
+                }
             } while (true);
         }
 

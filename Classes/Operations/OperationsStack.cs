@@ -20,49 +20,48 @@ namespace DataStructuresAndAlgorithms_InCSharp.Classes.Operations
                     + "5. Show Stack \n"
                     + "6. Exit \n");
 
-                if (int.TryParse(Console.ReadLine(), out int option))
+                if (!int.TryParse(Console.ReadLine(), out int option)) { Deffault(); continue; }
+
+                switch (option)
                 {
-                    switch (option)
-                    {
-                        case 1:
-                            Console.WriteLine("\nEnter a value: ");
-                            string input = Console.ReadLine();
+                    case 1:
+                        Console.WriteLine("\nEnter a value: ");
+                        string input = Console.ReadLine();
 
-                            try
-                            {
-                                T newElement = (T)Convert.ChangeType(input, typeof(T));
-                                stack.Push(newElement);
-                                Console.WriteLine($"Element '{newElement}' added to the stack.");
-                            }
-                            catch (InvalidCastException)
-                            {
-                                Console.WriteLine($"Could not convert '{input}' to type {typeof(T).Name}.");
-                            }
-                            break;
+                        try
+                        {
+                            T newElement = (T)Convert.ChangeType(input, typeof(T));
+                            stack.Push(newElement);
+                            Console.WriteLine($"Element '{newElement}' added to the stack.");
+                        }
+                        catch (InvalidCastException)
+                        {
+                            Console.WriteLine($"Could not convert '{input}' to type {typeof(T).Name}.");
+                        }
+                        break;
 
-                        case 2:
-                            Console.WriteLine($"Element '{stack.Pop()}' removed from the stack.");
-                            break;
+                    case 2:
+                        Console.WriteLine($"Element '{stack.Pop()}' removed from the stack.");
+                        break;
 
-                        case 3:
-                            Console.WriteLine($"Element '{stack.Peek()}' is at the top of the stack.");
-                            break;
+                    case 3:
+                        Console.WriteLine($"Element '{stack.Peek()}' is at the top of the stack.");
+                        break;
 
-                        case 4:
-                            Console.WriteLine($"Number of elements in the stack: {stack.Count()}");
-                            break;
+                    case 4:
+                        Console.WriteLine($"Number of elements in the stack: {stack.Count()}");
+                        break;
 
-                        case 5:
-                            stack.Show();
-                            break;
+                    case 5:
+                        stack.Show();
+                        break;
 
-                        case 6:
-                            return;
+                    case 6:
+                        return;
 
-                        default:
-                            Deffault();
-                            continue;
-                    }
+                    default:
+                        Deffault();
+                        continue;
                 }
                 Console.ReadKey();
             } while (true);
@@ -78,32 +77,28 @@ namespace DataStructuresAndAlgorithms_InCSharp.Classes.Operations
                 + "2. Dynamic stack \n"
                 + "3. Exit \n");
 
-                if (int.TryParse(Console.ReadLine(), out int opt))
+                if (!int.TryParse(Console.ReadLine(), out int opt)) { Deffault(); continue; }
+
+                switch (opt)
                 {
-                    switch (opt)
-                    {
-                        case 1:
-                            Console.WriteLine("How many data do you want to store in the static stack?");
-                            if (int.TryParse(Console.ReadLine(), out int cant))
-                            {
-                                AllStackOperation(new StaticStack<object>(cant));
-                            }
-                            else { Deffault(); }
-                            break;
+                    case 1:
+                        Console.WriteLine("How many data do you want to store in the static stack?");
+                        if (!int.TryParse(Console.ReadLine(), out int cant)) { Deffault(); continue; }
 
-                        case 2:
-                            AllStackOperation(new DinamicStack<object>());
-                            break;
+                        AllStackOperation(new StaticStack<object>(cant));
+                        break;
 
-                        case 3:
-                            return;
+                    case 2:
+                        AllStackOperation(new DinamicStack<object>());
+                        break;
 
-                        default:
-                            Deffault();
-                            continue;
-                    }
+                    case 3:
+                        return;
+
+                    default:
+                        Deffault();
+                        continue;
                 }
-                else { Deffault(); }
             } while (true);
         }
 
