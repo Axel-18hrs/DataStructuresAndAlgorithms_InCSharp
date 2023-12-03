@@ -10,7 +10,7 @@ using System.Xml.Serialization;
 
 namespace DataStructuresAndAlgorithms_InCSharp.Classes.Operations
 {
-    internal class OperationsGraph<T>
+    internal class OperationsGraph
     {
         public static void AllOperationGraph<T>(ImethodGraphs<T> graph)
         {
