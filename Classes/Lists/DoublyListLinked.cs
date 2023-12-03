@@ -168,7 +168,7 @@ namespace DataStructuresAndAlgorithms_InCSharp.Classes.Lists
             Console.WriteLine("=== My Doubly Linked List ===");
             while (CurrentNode != null)
             {
-                Console.WriteLine($"- Node[{i}] and data: " + (CurrentNode.Data is Person ? CurrentNode.Data.ToString() : CurrentNode.Data));
+                Console.WriteLine($"- Node[{i}] and data: " +  CurrentNode.Data);
                 CurrentNode = CurrentNode.Next;
                 i++;
             }
@@ -189,7 +189,7 @@ namespace DataStructuresAndAlgorithms_InCSharp.Classes.Lists
             Console.WriteLine("=== My Reversed Doubly Linked List ===");
             do
             {
-                Console.WriteLine($"- Node[{i}] and data: " + (CurrentNode.Data is Person ? CurrentNode.Data.ToString() : CurrentNode.Data));
+                Console.WriteLine($"- Node[{i}] and data: " + CurrentNode.Data);
                 CurrentNode = CurrentNode.Back;
                 i++;
             } while (CurrentNode != null);

@@ -183,7 +183,7 @@ namespace DataStructuresAndAlgorithms_InCSharp.Classes.Lists
 
             foreach (T node in stackArray)
             {
-                Console.WriteLine($"- Node[{--i}] and data: " + (node is Person ? node.ToString() : node.ToString()));
+                Console.WriteLine($"- Node[{--i}] and data: " + node.ToString());
             }
         }
 

@@ -139,7 +139,7 @@ namespace DataStructuresAndAlgorithms_InCSharp.Classes.Lists
             Console.WriteLine("=== My simple list ===");
             while (CurrentNode != null)
             {
-                Console.WriteLine($"- Node[{i}] and data: " + (CurrentNode.Data is Person ? CurrentNode.Data.ToString() : CurrentNode.Data));
+                Console.WriteLine($"- Node[{i}] and data: " + CurrentNode.Data);
                 CurrentNode = CurrentNode.Next;
                 i++;
             }
@@ -168,7 +168,7 @@ namespace DataStructuresAndAlgorithms_InCSharp.Classes.Lists
 
             foreach (T node in stackArray)
             {
-                Console.WriteLine($"- Node[{--i}] and data: " + (node is Person ? node.ToString() : node.ToString()));
+                Console.WriteLine($"- Node[{--i}] and data: " + node.ToString());
             }
         }
 

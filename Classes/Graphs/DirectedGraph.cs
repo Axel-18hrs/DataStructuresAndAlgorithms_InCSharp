@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using DataStructuresAndAlgorithms_InCSharp.Interfaces;
 
 namespace DataStructuresAndAlgorithms_InCSharp.Classes.Graphs
 {
-    public class DirectedGraph<T>
+    public class DirectedGraph<T> : ImethodGraphs<T>
     {
         private Dictionary<T, List<T>> adjacencyList;
 
@@ -138,7 +134,7 @@ namespace DataStructuresAndAlgorithms_InCSharp.Classes.Graphs
         }
 
         // Calculate the out-degree of a vertex in the directed graph
-        public int CalculateOutDegree(T vertex)
+        public int CalculateDegree(T vertex)
         {
             int outDegree = adjacencyList.ContainsKey(vertex) ? adjacencyList[vertex].Count : -1;
             Console.WriteLine($"Out-degree of vertex {vertex}: {outDegree}.");

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DataStructuresAndAlgorithms_InCSharp.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace DataStructuresAndAlgorithms_InCSharp.Classes.Graphs
 {
-    internal class Graph<T>
+    internal class Graph<T> : ImethodGraphs<T>
     {
         private Dictionary<T, List<T>> adjacencyList;
 
@@ -141,7 +142,7 @@ namespace DataStructuresAndAlgorithms_InCSharp.Classes.Graphs
         }
 
         // Calculate the degree of a vertex
-        public int CalculateVertexDegree(T vertex)
+        public int CalculateDegree(T vertex)
         {
             int degree = adjacencyList.ContainsKey(vertex) ? adjacencyList[vertex].Count : -1;
             Console.WriteLine($"Degree of vertex {vertex}: {degree}.");
