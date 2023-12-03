@@ -10,7 +10,7 @@ namespace DataStructuresAndAlgorithms_InCSharp.Classes.Queues
 
         public void Enqueue(T? value)
         {
-            Console.WriteLine("\n Nivel de prioridad deseado?");
+            Console.WriteLine("\nDesired priority level?");
             if (!int.TryParse(Console.ReadLine(), out int priority))
             {
                 OperationsQueue.Deffault();

@@ -21,67 +21,65 @@ namespace DataStructuresAndAlgorithms_InCSharp.Classes.Operations
                     + "7. InOrder Traversal\n"
                     + "8. Exit\n");
 
-                if (int.TryParse(Console.ReadLine(), out int choice))
+                if (!int.TryParse(Console.ReadLine(), out int choice)) { Default(); continue; }
+
+                if (choice == 8) { return; }
+
+                switch (choice)
                 {
-                    if (choice == 8) { break; }
+                    case 1:
+                        Console.Write("Enter a value: ");
+                        if (int.TryParse(Console.ReadLine(), out int opt))
+                        {
+                            tree.Add(opt);
+                        }
+                        else { Default(); continue; }
+                        break;
 
-                    switch (choice)
-                    {
-                        case 1:
-                            Console.Write("Enter a value: ");
-                            if (int.TryParse(Console.ReadLine(), out int opt))
-                            {
-                                tree.Add(opt);
-                            }
-                            else { Default(); continue; }
-                            break;
+                    case 2:
+                        Console.Write("Enter the value of the node to search: ");
+                        if (int.TryParse(Console.ReadLine(), out int opti))
+                        {
+                            tree.Search(opti);
+                        }
+                        else { Default(); continue; }
+                        break;
 
-                        case 2:
-                            Console.Write("Enter the value of the node to search: ");
-                            if (int.TryParse(Console.ReadLine(), out int opti))
-                            {
-                                tree.Search(opti);
-                            }
-                            else { Default(); continue; }
-                            break;
+                    case 3:
+                        Console.Write("Enter the value of the node to delete: ");
+                        if (int.TryParse(Console.ReadLine(), out int option))
+                        {
+                            tree.Delete(option);
+                        }
+                        else { Default(); continue; }
+                        break;
 
-                        case 3:
-                            Console.Write("Enter the value of the node to delete: ");
-                            if (int.TryParse(Console.ReadLine(), out int option))
-                            {
-                                tree.Delete(option);
-                            }
-                            else { Default(); continue; }
-                            break;
+                    case 4:
+                        Console.Clear();
+                        tree.PrintTree();
+                        Console.WriteLine("Press a key to exit");
+                        break;
 
-                        case 4:
-                            Console.Clear();
-                            tree.PrintTree();
-                            break;
+                    case 5:
+                        Console.Clear();
+                        Console.WriteLine("PreOrder Traversal: " + string.Join(" ", tree.GetPreOrden()));
+                        break;
 
-                        case 5:
-                            Console.Clear();
-                            Console.WriteLine("PreOrder Traversal: " + string.Join(" ", tree.GetPreOrden()));
-                            break;
+                    case 6:
+                        Console.Clear();
+                        Console.WriteLine("PostOrder Traversal: " + string.Join(" ", tree.GetPostOrden()));
+                        break;
 
-                        case 6:
-                            Console.Clear();
-                            Console.WriteLine("PostOrder Traversal: " + string.Join(" ", tree.GetPostOrden()));
-                            break;
+                    case 7:
+                        Console.Clear();
+                        Console.WriteLine("InOrder Traversal: " + string.Join(" ", tree.GetInOrden()));
+                        break;
 
-                        case 7:
-                            Console.Clear();
-                            Console.WriteLine("InOrder Traversal: " + string.Join(" ", tree.GetInOrden()));
-                            break;
-
-                        default:
-                            Default();
-                            continue;
-                    }
-
-                    Console.ReadKey();
+                    default:
+                        Default();
+                        continue;
                 }
-                else { Default(); continue; }
+                Console.ReadKey();
             } while (true);
         }
 

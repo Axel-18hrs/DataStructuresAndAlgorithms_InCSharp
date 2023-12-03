@@ -9,8 +9,8 @@ namespace DataStructuresAndAlgorithms_InCSharp.Classes.Operations
         public static void ALQueueOperation<T>(ImethodQueues<T> queue)
         {
             // Esta en proceso
-            string queueTypeMessage = queue is RegularQueue<T> ? "Regular" : queue is CircularList<T> ? "Double" :
-                                    queue is DoublyListLinked<T> ? "Priority" : "Circle";
+            string queueTypeMessage = queue is RegularQueue<T> ? "Regular" : queue is DoubleQueue<T> ? "Double" :
+                                    queue is PriorityQueue<T> ? "Priority" : "Circle";
             bool operationCircularqueue = queue is CircularQueue<T>;
 
             do
@@ -42,6 +42,7 @@ namespace DataStructuresAndAlgorithms_InCSharp.Classes.Operations
                             {
                                 try
                                 {
+                                    Console.WriteLine("Enter a value to enqueue at the rear:");
                                     T convertedValue = (T)Convert.ChangeType(Console.ReadLine(), typeof(T));
                                     queue.EnqueueRear(convertedValue);
                                 }
@@ -58,6 +59,7 @@ namespace DataStructuresAndAlgorithms_InCSharp.Classes.Operations
 
                         try
                         {
+                            Console.WriteLine("Enter a value to enqueue:");
                             T convertedValue = (T)Convert.ChangeType(Console.ReadLine(), typeof(T));
                             queue.Enqueue(convertedValue);
                         }
@@ -65,7 +67,7 @@ namespace DataStructuresAndAlgorithms_InCSharp.Classes.Operations
                         {
                             Deffault();
                         }
-                        continue;
+                        break;
                     case 2:
                         if (operationCircularqueue)
                         {
@@ -105,29 +107,15 @@ namespace DataStructuresAndAlgorithms_InCSharp.Classes.Operations
                         }
 
                         queue.Peek();
-                        continue;
+                        break;
                     case 4:
-                        if (operationCircularqueue)
-                        {
-                            Console.WriteLine("Que tipo de encolado deseas hacer?"
-                                + "\n1. Dequeue simple"
-                                + "\n2. Dequeue rear");
-
-                            if (!int.TryParse(Console.ReadLine(), out int option)) { Deffault(); continue; }
-
-                            if (option == 2)
-                            {
-                                queue.DequeueRear();
-                                continue;
-                            }
-
-                            if (option != 1) { Deffault(); continue; }
-                        }
-                        continue;
+                        queue.Display();
+                        break;
                     default:
                         Deffault();
                         continue;
                 }
+                Console.ReadKey();
             } while (true);
         }
 
@@ -143,37 +131,35 @@ namespace DataStructuresAndAlgorithms_InCSharp.Classes.Operations
                 + "4. Circular queue \n"
                 + "5. Exit \n");
 
-                if (int.TryParse(Console.ReadLine(), out int opt))
+                if (!int.TryParse(Console.ReadLine(), out int opt)) { Deffault(); continue; }
+
+                if (opt == 5) { return; }
+
+                switch (opt)
                 {
-                    if (opt == 5) { return; }
+                    case 1:
+                        ALQueueOperation(new RegularQueue<object>());
+                        break;
 
-                    switch (opt)
-                    {
-                        case 1:
-                            ALQueueOperation(new RegularQueue<object>());
-                            break;
+                    case 2:
+                        ALQueueOperation(new DoubleQueue<object>());
+                        break;
 
-                        case 2:
-                            ALQueueOperation(new DoubleQueue<object>());
-                            break;
+                    case 3:
+                        ALQueueOperation(new PriorityQueue<object>());
+                        break;
 
-                        case 3:
-                            ALQueueOperation(new PriorityQueue<object>());
-                            break;
+                    case 4:
+                        Console.WriteLine("How large do you want your Queue to be?");
+                        if (!int.TryParse(Console.ReadLine(), out int lenght)) { Deffault(); continue; }
 
-                        case 4:
-                            Console.WriteLine("De que tamaño desea que sea su Queue?");
-                            if (!int.TryParse(Console.ReadLine(), out int lenght)) { Deffault(); continue; }
+                        ALQueueOperation(new CircularQueue<object>(lenght));
+                        break;
 
-                            ALQueueOperation(new CircularQueue<object>(lenght));
-                            break;
-
-                        default:
-                            Deffault();
-                            continue;
-                    }
+                    default:
+                        Deffault();
+                        continue;
                 }
-                else { Deffault(); }
             } while (true);
         }
 

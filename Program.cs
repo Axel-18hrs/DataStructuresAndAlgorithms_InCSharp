@@ -18,32 +18,30 @@ namespace DataStructuresAndAlgorithms_InCSharp
                     + "5. Graphs \n"
                     + "0. Salir \n");
 
-                if (int.TryParse(Console.ReadLine(), out int option))
+                if (!int.TryParse(Console.ReadLine(), out int option)) { OperationsList.Deffault(); continue; }
+
+                switch (option)
                 {
-                    switch (option)
-                    {
-                        case 1:
-                            OperationsList.MenuList();
-                            break;
-                        case 2:
-                            OperationsStack.MenuStack();
-                            break;
-                        case 3:
-                            OperationsQueue.MenuQueue();
-                            break;
-                        case 4:
-                            OperationsTree.TreeMenu();
-                            break;
-                        case 5:
-                            OperationsGraph.MenuGraph();
-                            break;
+                    case 1:
+                        OperationsList.MenuList();
+                        break;
+                    case 2:
+                        OperationsStack.MenuStack();
+                        break;
+                    case 3:
+                        OperationsQueue.MenuQueue();
+                        break;
+                    case 4:
+                        OperationsTree.TreeMenu();
+                        break;
+                    case 5:
+                        OperationsGraph.MenuGraph();
+                        break;
 
-                        default:
-                            OperationsList.Deffault();
-                            continue;
-                    }
-                } else { OperationsList.Deffault(); continue; }
-
+                    default:
+                        OperationsList.Deffault();
+                        continue;
+                }
             } while (true);
         }
     }
