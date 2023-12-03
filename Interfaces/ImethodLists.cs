@@ -10,7 +10,5 @@
         void ShowRevers();
         bool IsEmpty();
         void Clear();
-        //IEnumerable<object> DataNumeric();
-        //void AddElements(IEnumerable<T> elementsToAdd);
     }
 }

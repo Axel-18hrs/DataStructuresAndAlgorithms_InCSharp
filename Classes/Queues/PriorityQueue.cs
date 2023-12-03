@@ -8,7 +8,7 @@ namespace DataStructuresAndAlgorithms_InCSharp.Classes.Queues
     {
         private SortedDictionary<int, Queue<T>> myPriorityQueue = new SortedDictionary<int, Queue<T>>();
 
-        public void Enqueue(T value)
+        public void Enqueue(T? value)
         {
             Console.WriteLine("\n Nivel de prioridad deseado?");
             if (!int.TryParse(Console.ReadLine(), out int priority))
@@ -27,7 +27,7 @@ namespace DataStructuresAndAlgorithms_InCSharp.Classes.Queues
             Console.WriteLine($"Enqueued with priority {priority}: {value}");
         }
 
-        public void EnqueueRear(T priority)
+        public void EnqueueRear(T? priority)
         {
 
         }

@@ -8,8 +8,8 @@ namespace DataStructuresAndAlgorithms_InCSharp.Interfaces
 {
     internal interface ImethodQueues<T>
     {
-        void Enqueue(T value);
-        void EnqueueRear(T value);
+        void Enqueue(T? value);
+        void EnqueueRear(T? value);
         void Dequeue();
         void DequeueRear();
         void Peek();

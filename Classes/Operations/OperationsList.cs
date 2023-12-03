@@ -126,7 +126,7 @@ namespace DataStructuresAndAlgorithms_InCSharp.Classes.Operations
 
                     case (int)OptionLists.Delete:
                         Console.Clear();
-                        Console.WriteLine("Do you want to delete data randomly? \n"
+                        Console.WriteLine("Do you want to delete data randomly (only numbers)? \n"
                             + "1. Yes \n"
                             + "2. No \n");
                         if (!int.TryParse(Console.ReadLine(), out int optio)) { Deffault(); continue; }
@@ -137,7 +137,7 @@ namespace DataStructuresAndAlgorithms_InCSharp.Classes.Operations
                                 list.Delete(DataNumeric());
                                 continue;
                             case 2:
-                                Console.WriteLine("Enter a value: ");
+                                Console.WriteLine("Enter a value to delete: ");
                                 list.Delete(Console.ReadLine());
                                 continue;
                             default:
@@ -146,7 +146,7 @@ namespace DataStructuresAndAlgorithms_InCSharp.Classes.Operations
                         }
 
                     case (int)OptionLists.Search:
-                        Console.WriteLine("Enter a value: ");
+                        Console.WriteLine("Enter a value to search: ");
                         list.Search(Console.ReadLine());
                         continue;
 

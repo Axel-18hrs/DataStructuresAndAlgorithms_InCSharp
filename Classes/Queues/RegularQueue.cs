@@ -11,13 +11,13 @@ namespace DataStructuresAndAlgorithms_InCSharp.Classes.Queues
     {
         private Queue<T> myQueue = new Queue<T>();
 
-        public void Enqueue(T value)
+        public void Enqueue(T? value)
         {
             myQueue.Enqueue(value);
             Console.WriteLine($"Enqueued: {value}");
         }
 
-        public void EnqueueRear(T value)
+        public void EnqueueRear(T? value)
         {
 
         }

@@ -11,26 +11,123 @@ namespace DataStructuresAndAlgorithms_InCSharp.Classes.Operations
             // Esta en proceso
             string queueTypeMessage = queue is RegularQueue<T> ? "Regular" : queue is CircularList<T> ? "Double" :
                                     queue is DoublyListLinked<T> ? "Priority" : "Circle";
+            bool operationCircularqueue = queue is CircularQueue<T>;
 
             do
             {
                 Console.Clear();
                 Console.WriteLine($"{queueTypeMessage} queue \n"
-                    + "1. Add value \n"
-                    + "2. Delete value \n"
-                    + "3. Search value \n"
-                    + "4. Show list \n"
-                    + "5. Show reverse \n"
-                    + "6. Clear \n"
-                    + "7. Exit \n");
+                    + "1. Enqueue value \n"
+                    + "2. Dequeue value \n"
+                    + "3. Peek value\n"
+                    + "4. Display \n"
+                    + "5. Exit \n");
 
                 if (!int.TryParse(Console.ReadLine(), out int choice)) { Deffault(); continue; }
 
+                if (choice == 5) { return; }
+
                 switch (choice)
                 {
+                    case 1:
+                        if (operationCircularqueue)
+                        {
+                            Console.WriteLine("Que tipo de encolado deseas hacer?"
+                                + "\n1. Enqueue simple"
+                                + "\n2. Enqueue rear");
 
+                            if (!int.TryParse(Console.ReadLine(), out int option)) { Deffault(); continue; }
+
+                            if (option == 2)
+                            {
+                                try
+                                {
+                                    T convertedValue = (T)Convert.ChangeType(Console.ReadLine(), typeof(T));
+                                    queue.EnqueueRear(convertedValue);
+                                }
+                                catch (InvalidCastException)
+                                {
+                                    Deffault();
+                                }
+                                continue;
+                            }
+
+                            if (option != 1) { Deffault(); continue; }
+
+                        }
+
+                        try
+                        {
+                            T convertedValue = (T)Convert.ChangeType(Console.ReadLine(), typeof(T));
+                            queue.Enqueue(convertedValue);
+                        }
+                        catch (InvalidCastException)
+                        {
+                            Deffault();
+                        }
+                        continue;
+                    case 2:
+                        if (operationCircularqueue)
+                        {
+                            Console.WriteLine("Que tipo de 'Dequeue' deseas hacer?"
+                                + "\n1. Dequeue simple"
+                                + "\n2. Dequeue rear");
+
+                            if (!int.TryParse(Console.ReadLine(), out int option)) { Deffault(); continue; }
+
+                            if (option == 2)
+                            {
+                                queue.DequeueRear();
+                                continue;
+                            }
+
+                            if (option != 1) { Deffault(); continue; }
+                        }
+
+                        queue.Dequeue();
+                        continue;
+                    case 3:
+                        if (operationCircularqueue)
+                        {
+                            Console.WriteLine("Que tipo de 'Peek' deseas hacer?"
+                                + "\n1. Peek simple"
+                                + "\n2. Peek rear");
+
+                            if (!int.TryParse(Console.ReadLine(), out int option)) { Deffault(); continue; }
+
+                            if (option == 2)
+                            {
+                                queue.PeekRear();
+                                continue;
+                            }
+
+                            if (option != 1) { Deffault(); continue; }
+                        }
+
+                        queue.Peek();
+                        continue;
+                    case 4:
+                        if (operationCircularqueue)
+                        {
+                            Console.WriteLine("Que tipo de encolado deseas hacer?"
+                                + "\n1. Dequeue simple"
+                                + "\n2. Dequeue rear");
+
+                            if (!int.TryParse(Console.ReadLine(), out int option)) { Deffault(); continue; }
+
+                            if (option == 2)
+                            {
+                                queue.DequeueRear();
+                                continue;
+                            }
+
+                            if (option != 1) { Deffault(); continue; }
+                        }
+                        continue;
+                    default:
+                        Deffault();
+                        continue;
                 }
-                Console.ReadKey();
             } while (true);
         }
 

@@ -7,13 +7,13 @@ namespace DataStructuresAndAlgorithms_InCSharp.Classes.Queues
     {
         private LinkedList<T> myDeque = new LinkedList<T>();
 
-        public void Enqueue(T value)
+        public void Enqueue(T? value)
         {
             myDeque.AddFirst(value);
             Console.WriteLine($"Enqueued at the front: {value}");
         }
 
-        public void EnqueueRear(T value)
+        public void EnqueueRear(T? value)
         {
             myDeque.AddLast(value);
             Console.WriteLine($"Enqueued at the rear: {value}");

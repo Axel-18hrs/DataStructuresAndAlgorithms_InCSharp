@@ -22,7 +22,7 @@ namespace DataStructuresAndAlgorithms_InCSharp.Classes.Queues
             front = rear = -1;
         }
 
-        public void Enqueue(T value)
+        public void Enqueue(T? value)
         {
             if (IsEmpty())
             {
