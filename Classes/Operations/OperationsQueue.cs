@@ -23,8 +23,6 @@ namespace DataStructuresAndAlgorithms_InCSharp.Classes.Operations
 
                 if (!int.TryParse(Console.ReadLine(), out int choice)) { Deffault(); continue; }
 
-                if (choice == 5) { return; }
-
                 switch (choice)
                 {
                     case 1:
@@ -108,6 +106,10 @@ namespace DataStructuresAndAlgorithms_InCSharp.Classes.Operations
                     case 4:
                         queue.Display();
                         break;
+
+                    case 5:
+                        return;
+
                     default:
                         Deffault();
                         continue;
@@ -130,8 +132,6 @@ namespace DataStructuresAndAlgorithms_InCSharp.Classes.Operations
 
                 if (!int.TryParse(Console.ReadLine(), out int opt)) { Deffault(); continue; }
 
-                if (opt == 5) { return; }
-
                 switch (opt)
                 {
                     case 1:
@@ -152,6 +152,9 @@ namespace DataStructuresAndAlgorithms_InCSharp.Classes.Operations
 
                         ALQueueOperation(new CircularQueue<object>(lenght));
                         break;
+
+                    case 5:
+                        return;
 
                     default:
                         Deffault();

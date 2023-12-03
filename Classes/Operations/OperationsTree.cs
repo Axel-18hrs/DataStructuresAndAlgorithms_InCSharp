@@ -23,7 +23,7 @@ namespace DataStructuresAndAlgorithms_InCSharp.Classes.Operations
 
                 if (!int.TryParse(Console.ReadLine(), out int choice)) { Default(); continue; }
 
-                if (choice == 8) { return; }
+                //if (choice == 8) { return; }
 
                 switch (choice)
                 {
@@ -74,6 +74,9 @@ namespace DataStructuresAndAlgorithms_InCSharp.Classes.Operations
                         Console.Clear();
                         Console.WriteLine("InOrder Traversal: " + string.Join(" ", tree.GetInOrden()));
                         break;
+
+                    case 8:
+                        return;
 
                     default:
                         Default();

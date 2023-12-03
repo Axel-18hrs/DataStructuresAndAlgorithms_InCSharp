@@ -1,9 +1,4 @@
 ﻿using DataStructuresAndAlgorithms_InCSharp.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DataStructuresAndAlgorithms_InCSharp.Classes.Graphs
 {
@@ -120,6 +115,13 @@ namespace DataStructuresAndAlgorithms_InCSharp.Classes.Graphs
             List<T> visited = new List<T>();
             Queue<T> queue = new Queue<T>();
 
+            // Check if startVertex is in adjacencyList
+            if (!adjacencyList.ContainsKey(startVertex))
+            {
+                Console.WriteLine($"Vertex {startVertex} does not exist in the graph.");
+                return visited;
+            }
+
             visited.Add(startVertex);
             queue.Enqueue(startVertex);
 
@@ -127,12 +129,16 @@ namespace DataStructuresAndAlgorithms_InCSharp.Classes.Graphs
             {
                 T currentVertex = queue.Dequeue();
 
-                foreach (var neighbor in adjacencyList[currentVertex])
+                // Check if currentVertex is in adjacencyList
+                if (adjacencyList.ContainsKey(currentVertex))
                 {
-                    if (!visited.Contains(neighbor))
+                    foreach (var neighbor in adjacencyList[currentVertex])
                     {
-                        visited.Add(neighbor);
-                        queue.Enqueue(neighbor);
+                        if (!visited.Contains(neighbor))
+                        {
+                            visited.Add(neighbor);
+                            queue.Enqueue(neighbor);
+                        }
                     }
                 }
             }
@@ -162,17 +168,21 @@ namespace DataStructuresAndAlgorithms_InCSharp.Classes.Graphs
             {
                 T currentVertex = queue.Dequeue();
 
-                foreach (var neighbor in adjacencyList[currentVertex])
+                // Verificar si currentVertex está en adjacencyList
+                if (adjacencyList.ContainsKey(currentVertex))
                 {
-                    if (!levels.ContainsKey(neighbor))
+                    foreach (var neighbor in adjacencyList[currentVertex])
                     {
-                        levels[neighbor] = levels[currentVertex] + 1;
-                        queue.Enqueue(neighbor);
+                        if (!levels.ContainsKey(neighbor))
+                        {
+                            levels[neighbor] = levels[currentVertex] + 1;
+                            queue.Enqueue(neighbor);
+                        }
                     }
                 }
             }
 
-            Console.WriteLine("BFS levels: " + string.Join(", ", levels.Select(pair => $"{pair.Key}:{pair.Value}")));
+            Console.WriteLine("Niveles BFS: " + string.Join(", ", levels.Select(pair => $"{pair.Key}:{pair.Value}")));
             return levels;
         }
     }

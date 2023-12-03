@@ -35,7 +35,7 @@ namespace DataStructuresAndAlgorithms_InCSharp
                         OperationsTree.TreeMenu();
                         break;
                     case 5:
-                        OperationsGraph.MenuGraph();
+                        OperationsGraph<object>.MenuGraphs();
                         break;
 
                     default:

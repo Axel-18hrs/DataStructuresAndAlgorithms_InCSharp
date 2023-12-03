@@ -112,6 +112,12 @@ namespace DataStructuresAndAlgorithms_InCSharp.Classes.Graphs
             List<T> visited = new List<T>();
             Queue<T> queue = new Queue<T>();
 
+            if (!adjacencyList.ContainsKey(startVertex))
+            {
+                Console.WriteLine($"Vertex {startVertex} does not exist in the graph.");
+                return visited;
+            }
+
             visited.Add(startVertex);
             queue.Enqueue(startVertex);
 
@@ -146,6 +152,12 @@ namespace DataStructuresAndAlgorithms_InCSharp.Classes.Graphs
         {
             Dictionary<T, int> levels = new Dictionary<T, int>();
             Queue<T> queue = new Queue<T>();
+
+            if (!adjacencyList.ContainsKey(startVertex))
+            {
+                Console.WriteLine($"Vertex {startVertex} does not exist in the graph.");
+                return levels;
+            }
 
             levels[startVertex] = 0;
             queue.Enqueue(startVertex);
