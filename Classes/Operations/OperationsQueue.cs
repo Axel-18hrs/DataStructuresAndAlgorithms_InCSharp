@@ -1,5 +1,4 @@
-﻿using DataStructuresAndAlgorithms_InCSharp.Classes.Lists;
-using DataStructuresAndAlgorithms_InCSharp.Classes.Queues;
+﻿using DataStructuresAndAlgorithms_InCSharp.Classes.Queues;
 using DataStructuresAndAlgorithms_InCSharp.Interfaces;
 
 namespace DataStructuresAndAlgorithms_InCSharp.Classes.Operations
@@ -8,10 +7,9 @@ namespace DataStructuresAndAlgorithms_InCSharp.Classes.Operations
     {
         public static void ALQueueOperation<T>(ImethodQueues<T> queue)
         {
-            // Esta en proceso
             string queueTypeMessage = queue is RegularQueue<T> ? "Regular" : queue is DoubleQueue<T> ? "Double" :
                                     queue is PriorityQueue<T> ? "Priority" : "Circle";
-            bool operationCircularqueue = queue is CircularQueue<T>;
+            bool operationCircularQueue = queue is CircularQueue<T>;
 
             do
             {
@@ -30,9 +28,9 @@ namespace DataStructuresAndAlgorithms_InCSharp.Classes.Operations
                 switch (choice)
                 {
                     case 1:
-                        if (operationCircularqueue)
+                        if (operationCircularQueue)
                         {
-                            Console.WriteLine("Que tipo de encolado deseas hacer?"
+                            Console.WriteLine("What type of enqueue do you want to perform?"
                                 + "\n1. Enqueue simple"
                                 + "\n2. Enqueue rear");
 
@@ -54,7 +52,6 @@ namespace DataStructuresAndAlgorithms_InCSharp.Classes.Operations
                             }
 
                             if (option != 1) { Deffault(); continue; }
-
                         }
 
                         try
@@ -69,9 +66,9 @@ namespace DataStructuresAndAlgorithms_InCSharp.Classes.Operations
                         }
                         break;
                     case 2:
-                        if (operationCircularqueue)
+                        if (operationCircularQueue)
                         {
-                            Console.WriteLine("Que tipo de 'Dequeue' deseas hacer?"
+                            Console.WriteLine("What type of 'Dequeue' do you want to perform?"
                                 + "\n1. Dequeue simple"
                                 + "\n2. Dequeue rear");
 
@@ -89,9 +86,9 @@ namespace DataStructuresAndAlgorithms_InCSharp.Classes.Operations
                         queue.Dequeue();
                         continue;
                     case 3:
-                        if (operationCircularqueue)
+                        if (operationCircularQueue)
                         {
-                            Console.WriteLine("Que tipo de 'Peek' deseas hacer?"
+                            Console.WriteLine("What type of 'Peek' do you want to perform?"
                                 + "\n1. Peek simple"
                                 + "\n2. Peek rear");
 
@@ -124,7 +121,7 @@ namespace DataStructuresAndAlgorithms_InCSharp.Classes.Operations
             do
             {
                 Console.Clear();
-                Console.WriteLine("Types of lists: \n"
+                Console.WriteLine("Types of queues: \n"
                 + "1. Regular queue \n"
                 + "2. Doubly queue \n"
                 + "3. Priority queue \n"
