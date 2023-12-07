@@ -60,22 +60,22 @@ namespace DataStructuresAndAlgorithms_InCSharp.Classes.Operations.Algorithms
             do
             {
                 Console.Clear();
-                Console.WriteLine("Ingresa el rango minimo desde donde quieres generar tu arreglo desordenado:");
+                Console.WriteLine("Enter the minimum range from which you want to generate your unordered array:");
                 if (!int.TryParse(Console.ReadLine(), out int minon))
                 {
                     OperationsList.Deffault();
                     continue;
                 }
 
-                Console.WriteLine("\nIngresa el rango maximo o limite donde quieres generar tu arreglo desordenado:");
-                if (!int.TryParse(Console.ReadLine(), out int lenght))
+                Console.WriteLine("\nEnter the maximum range or limit where you want to generate your unordered array:");
+                if (!int.TryParse(Console.ReadLine(), out int length))
                 {
                     OperationsList.Deffault();
                     continue;
                 }
 
-                Console.WriteLine("\nIngresa la cantidad de valores que deseas en tu arreglo:");
-                if (!int.TryParse(Console.ReadLine(), out int valores))
+                Console.WriteLine("\nEnter the number of values you want in your array:");
+                if (!int.TryParse(Console.ReadLine(), out int values))
                 {
                     OperationsList.Deffault();
                     continue;
@@ -83,33 +83,34 @@ namespace DataStructuresAndAlgorithms_InCSharp.Classes.Operations.Algorithms
 
                 if (algorithm is BucketSort)
                 {
-                    double[] arr = GenerarVectorDouble(minon, lenght, valores);
+                    double[] arr = GenerarVectorDouble(minon, length, values);
 
-                    Console.WriteLine("\nArreglo desordenado: ");
+                    Console.WriteLine("\nUnordered array: ");
                     Console.Write("[ " + string.Join(", ", arr) + " ]");
                     DateTime startTime = DateTime.Now;
                     algorithm.Sort(arr);
-                    Console.WriteLine("\nArreglo ordenado: ");
+                    Console.WriteLine("\nSorted array: ");
                     Console.WriteLine("[ " + string.Join(", ", arr) + " ]");
-                    Console.WriteLine("Tiempo: " + (DateTime.Now - startTime));
+                    Console.WriteLine("Time: " + (DateTime.Now - startTime));
                 }
                 else
                 {
-                    int[] arr = GenerarVector(minon, lenght, valores);
+                    int[] arr = GenerarVector(minon, length, values);
 
-                    Console.WriteLine("\nArreglo desordenado: ");
+                    Console.WriteLine("\nUnordered array: ");
                     Console.Write("[ " + string.Join(", ", arr) + " ]");
                     DateTime startTime = DateTime.Now;
                     algorithm.Sort(arr);
-                    Console.WriteLine("\nArreglo ordenado: ");
+                    Console.WriteLine("\nSorted array: ");
                     Console.WriteLine("[ " + string.Join(", ", arr) + " ]");
-                    Console.WriteLine("Tiempo: " + (DateTime.Now - startTime));
+                    Console.WriteLine("Time: " + (DateTime.Now - startTime));
                 }
 
                 Console.ReadKey();
 
             } while (true);
         }
+
 
         public static void MenuAlgorithms()
         {
@@ -192,7 +193,7 @@ namespace DataStructuresAndAlgorithms_InCSharp.Classes.Operations.Algorithms
                         Algorithm(new Smoothsort());
                         break;
                     case 0:
-                        return; // Exit the loop and method
+                        return;
                     default:
                         OperationsList.Deffault();
                         break;
