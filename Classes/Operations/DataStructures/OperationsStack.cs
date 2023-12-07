@@ -19,7 +19,7 @@ namespace DataStructuresAndAlgorithms_InCSharp.Classes.Operations.DataStructures
                     + "3. Peek \n"
                     + "4. Count \n"
                     + "5. Show Stack \n"
-                    + "6. Exit \n");
+                    + "0. Exit \n");
 
                 if (!int.TryParse(Console.ReadLine(), out int option)) { Deffault(); continue; }
 
@@ -57,7 +57,7 @@ namespace DataStructuresAndAlgorithms_InCSharp.Classes.Operations.DataStructures
                         stack.Show();
                         break;
 
-                    case 6:
+                    case 0:
                         return;
 
                     default:
@@ -76,7 +76,7 @@ namespace DataStructuresAndAlgorithms_InCSharp.Classes.Operations.DataStructures
                 Console.WriteLine("Types of stacks: \n"
                 + "1. Static stack \n"
                 + "2. Dynamic stack \n"
-                + "3. Exit \n");
+                + "0. Exit \n");
 
                 if (!int.TryParse(Console.ReadLine(), out int opt)) { Deffault(); continue; }
 
@@ -93,7 +93,7 @@ namespace DataStructuresAndAlgorithms_InCSharp.Classes.Operations.DataStructures
                         AllStackOperation(new DinamicStack<object>());
                         break;
 
-                    case 3:
+                    case 0:
                         return;
 
                     default:

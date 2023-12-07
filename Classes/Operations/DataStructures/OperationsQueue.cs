@@ -19,7 +19,7 @@ namespace DataStructuresAndAlgorithms_InCSharp.Classes.Operations.DataStructures
                     + "2. Dequeue value \n"
                     + "3. Peek value\n"
                     + "4. Display \n"
-                    + "5. Exit \n");
+                    + "0. Exit \n");
 
                 if (!int.TryParse(Console.ReadLine(), out int choice)) { Deffault(); continue; }
 
@@ -107,7 +107,7 @@ namespace DataStructuresAndAlgorithms_InCSharp.Classes.Operations.DataStructures
                         queue.Display();
                         break;
 
-                    case 5:
+                    case 0:
                         return;
 
                     default:
@@ -128,7 +128,7 @@ namespace DataStructuresAndAlgorithms_InCSharp.Classes.Operations.DataStructures
                 + "2. Doubly queue \n"
                 + "3. Priority queue \n"
                 + "4. Circular queue \n"
-                + "5. Exit \n");
+                + "0. Exit \n");
 
                 if (!int.TryParse(Console.ReadLine(), out int opt)) { Deffault(); continue; }
 
@@ -153,7 +153,7 @@ namespace DataStructuresAndAlgorithms_InCSharp.Classes.Operations.DataStructures
                         ALQueueOperation(new CircularQueue<object>(lenght));
                         break;
 
-                    case 5:
+                    case 0:
                         return;
 
                     default:

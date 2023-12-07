@@ -30,7 +30,7 @@ namespace DataStructuresAndAlgorithms_InCSharp.Classes.Operations.DataStructures
                     + "9. Traverse BFS\n"
                     + "10. Calculate Vertex Degree\n"
                     + "11. Calculate BFS Levels\n"
-                    + "12. Exit\n");
+                    + "0. Exit\n");
 
                 if (!int.TryParse(Console.ReadLine(), out int choice))
                 {
@@ -104,7 +104,7 @@ namespace DataStructuresAndAlgorithms_InCSharp.Classes.Operations.DataStructures
                         graph.CalculateBFSLevels((T)Convert.ChangeType(Console.ReadLine(), typeof(T)));
                         break;
 
-                    case 12:
+                    case 0:
                         return;
 
                     default:

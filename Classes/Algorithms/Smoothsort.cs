@@ -2,20 +2,20 @@
 
 namespace DataStructuresAndAlgorithms_InCSharp.Classes.Algorithms
 {
-    internal class Smoothsort : ImethodAlgorithms
+    public class SmoothSort : ImethodAlgorithms
     {
         private int[] heap;
 
-        public Smoothsort() { }
+        public SmoothSort() { }
 
         public void Sort(int[] arr)
         {
             heap = arr;
             int n = arr.Length;
 
-            for (int i = 0; i < n; i++)
+            for (int i = (n - 1) / 2; i >= 0; i--)
             {
-                Heapify(i);
+                SiftDown(i, n - 1);
             }
 
             for (int i = n - 1; i > 0; i--)
@@ -30,71 +30,35 @@ namespace DataStructuresAndAlgorithms_InCSharp.Classes.Algorithms
 
         }
 
-        private void Heapify(int i)
+        private void SiftDown(int root, int end)
         {
-            int n = heap.Length;
-            int k = 1;
-            int j = i - 1;
-
-            while (j >= 0 && heap[i] != heap[j])
+            int leftChild = 2 * root + 1;
+            while (leftChild <= end)
             {
-                if (heap[i] > heap[j])
+                int rightChild = leftChild + 1;
+                int swapIndex = root;
+
+                if (heap[swapIndex] < heap[leftChild])
                 {
-                    Swap(i, j);
-                    SiftDown(k, i - 1);
+                    swapIndex = leftChild;
                 }
 
-                i = j;
-                j = RightChild(i, k);
-                k++;
-            }
-        }
-
-        private void SiftDown(int l, int r)
-        {
-            while (l <= r)
-            {
-                int k = 2;
-                int i = r;
-                int j = r - l;
-
-                while (j >= 0 && heap[i] != heap[j])
+                if (rightChild <= end && heap[swapIndex] < heap[rightChild])
                 {
-                    if (heap[i] > heap[j])
-                    {
-                        Swap(i, j);
-                        SiftDown(k, i - 1);
-                    }
-
-                    i = j;
-                    j = RightChild(i, k);
-                    k++;
+                    swapIndex = rightChild;
                 }
 
-                l--;
+                if (swapIndex == root)
+                {
+                    return;
+                }
+                else
+                {
+                    Swap(root, swapIndex);
+                    root = swapIndex;
+                    leftChild = 2 * root + 1;
+                }
             }
-        }
-
-        private int RightChild(int i, int k)
-        {
-            return i - Fibonacci(k - 1) + Fibonacci(k - 2);
-        }
-
-        private int Fibonacci(int n)
-        {
-            if (n <= 1)
-                return n;
-
-            int a = 0, b = 1;
-
-            for (int i = 2; i <= n; i++)
-            {
-                int temp = a + b;
-                a = b;
-                b = temp;
-            }
-
-            return b;
         }
 
         private void Swap(int i, int j)

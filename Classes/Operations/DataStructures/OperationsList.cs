@@ -95,7 +95,7 @@ namespace DataStructuresAndAlgorithms_InCSharp.Classes.Operations.DataStructures
                     + "4. Show list \n"
                     + "5. Show reverse \n"
                     + "6. Clear \n"
-                    + "7. Exit \n");
+                    + "0. Exit \n");
 
                 if (!int.TryParse(Console.ReadLine(), out int opti)) { Deffault(); continue; }
 
@@ -162,7 +162,7 @@ namespace DataStructuresAndAlgorithms_InCSharp.Classes.Operations.DataStructures
                         list.Clear();
                         continue;
 
-                    case 7:
+                    case 0:
                         return;
 
                     default:
@@ -183,7 +183,7 @@ namespace DataStructuresAndAlgorithms_InCSharp.Classes.Operations.DataStructures
                 + "2. Circular \n"
                 + "3. Doubly linked \n"
                 + "4. Circular Doubly linked \n"
-                + "5. Exit \n");
+                + "0. Exit \n");
 
                 if (!int.TryParse(Console.ReadLine(), out int opt)) { Deffault(); continue; }
 
@@ -205,7 +205,7 @@ namespace DataStructuresAndAlgorithms_InCSharp.Classes.Operations.DataStructures
                         AListOperation<object>(new CircularDoublyLinkedList<object>());
                         break;
 
-                    case 5:
+                    case 0:
                         return;
 
                     default:

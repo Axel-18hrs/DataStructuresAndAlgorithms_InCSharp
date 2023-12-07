@@ -19,7 +19,7 @@ namespace DataStructuresAndAlgorithms_InCSharp.Classes.Operations.DataStructures
                     + "5. PreOrder Traversal\n"
                     + "6. PostOrder Traversal\n"
                     + "7. InOrder Traversal\n"
-                    + "8. Exit\n");
+                    + "0. Exit\n");
 
                 if (!int.TryParse(Console.ReadLine(), out int choice)) { Default(); continue; }
 
@@ -75,7 +75,7 @@ namespace DataStructuresAndAlgorithms_InCSharp.Classes.Operations.DataStructures
                         Console.WriteLine("InOrder Traversal: " + string.Join(" ", tree.GetInOrden()));
                         break;
 
-                    case 8:
+                    case 0:
                         return;
 
                     default:
