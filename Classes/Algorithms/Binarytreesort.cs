@@ -1,4 +1,6 @@
-﻿namespace DataStructuresAndAlgorithms_InCSharp.Classes.Algorithms
+﻿using DataStructuresAndAlgorithms_InCSharp.Interfaces.Algorithms;
+
+namespace DataStructuresAndAlgorithms_InCSharp.Classes.Algorithms
 {
     internal class BinarytreeNode
     {
@@ -12,7 +14,7 @@
         }
     }
 
-    internal class Binarytreesort
+    internal class Binarytreesort : ImethodAlgorithms
     {
         public Binarytreesort() { }
 
@@ -28,6 +30,11 @@
 
             // Recorrer el árbol en orden para obtener los elementos ordenados
             InOrderTraversal(root, arr, ref index);
+        }
+
+        public void Sort(double[] arr)
+        {
+
         }
 
         private BinarytreeNode Insert(BinarytreeNode node, int value)
