@@ -1,4 +1,4 @@
-﻿using DataStructuresAndAlgorithms_InCSharp.Classes.Operations;
+﻿using DataStructuresAndAlgorithms_InCSharp.Classes.Operations.DataStructures;
 
 namespace DataStructuresAndAlgorithms_InCSharp
 {
