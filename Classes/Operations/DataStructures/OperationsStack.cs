@@ -1,5 +1,5 @@
 ﻿using DataStructuresAndAlgorithms_InCSharp.Classes.DataStructures.Stacks;
-using DataStructuresAndAlgorithms_InCSharp.Classes.Stacks;
+using DataStructuresAndAlgorithms_InCSharp.Classes;
 using DataStructuresAndAlgorithms_InCSharp.Interfaces.DataStructures;
 
 namespace DataStructuresAndAlgorithms_InCSharp.Classes.Operations.DataStructures

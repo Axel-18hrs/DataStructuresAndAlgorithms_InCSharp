@@ -1,5 +1,5 @@
 ﻿using DataStructuresAndAlgorithms_InCSharp.Classes.DataStructures.Graphs;
-using DataStructuresAndAlgorithms_InCSharp.Classes.Lists;
+using DataStructuresAndAlgorithms_InCSharp.Classes;
 using DataStructuresAndAlgorithms_InCSharp.Interfaces.DataStructures;
 using System;
 using System.Collections.Generic;

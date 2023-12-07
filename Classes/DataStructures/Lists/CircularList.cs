@@ -160,7 +160,7 @@ namespace DataStructuresAndAlgorithms_InCSharp.Classes.DataStructures.Lists
             Console.WriteLine("=== My Circular List ===");
             do
             {
-                Console.WriteLine($"- Node[{i}] and data: " + (CurrentNode.Data is Person ? CurrentNode.Data.ToString() : CurrentNode.Data));
+                Console.WriteLine($"- Node[{i}] and data: " + CurrentNode.Data);
                 CurrentNode = CurrentNode.Next;
                 i++;
             } while (CurrentNode != Head);

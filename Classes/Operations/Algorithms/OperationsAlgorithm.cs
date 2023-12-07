@@ -90,7 +90,7 @@ namespace DataStructuresAndAlgorithms_InCSharp.Classes.Operations.Algorithms
                     DateTime startTime = DateTime.Now;
                     algorithm.Sort(arr);
                     Console.WriteLine("\nArreglo ordenado: ");
-                    Console.Write("[ " + string.Join(", ", arr) + " ]");
+                    Console.WriteLine("[ " + string.Join(", ", arr) + " ]");
                     Console.WriteLine("Tiempo: " + (DateTime.Now - startTime));
                 }
                 else
@@ -102,7 +102,7 @@ namespace DataStructuresAndAlgorithms_InCSharp.Classes.Operations.Algorithms
                     DateTime startTime = DateTime.Now;
                     algorithm.Sort(arr);
                     Console.WriteLine("\nArreglo ordenado: ");
-                    Console.Write("[ " + string.Join(", ", arr) + " ]");
+                    Console.WriteLine("[ " + string.Join(", ", arr) + " ]");
                     Console.WriteLine("Tiempo: " + (DateTime.Now - startTime));
                 }
 
