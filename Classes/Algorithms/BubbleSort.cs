@@ -1,8 +1,21 @@
-﻿namespace DataStructuresAndAlgorithms_InCSharp.Classes.Algorithms
+﻿using DataStructuresAndAlgorithms_InCSharp.Interfaces.Algorithms;
+
+namespace DataStructuresAndAlgorithms_InCSharp.Classes.Algorithms
 {
-    internal class BubbleSort
+    internal class BubbleSort : ImethodAlgorithms
     {
         public BubbleSort() { }
+
+        public void Sort(int[] arr) 
+        {
+            bubbleSort(arr);
+            Console.WriteLine("[ " + string.Join(", ", arr) + " ]");
+        }
+
+        public void Sort(double[] arr)
+        {
+
+        }
 
         public void bubbleSort(int[] array)
         {
