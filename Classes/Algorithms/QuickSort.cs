@@ -22,7 +22,6 @@ namespace DataStructuresAndAlgorithms_InCSharp.Classes.Algorithms
         public void Sort(int[] arr)
         {
             Quicksort(ref arr, 0, arr.Length - 1);
-            Console.WriteLine("[ " + string.Join(", ", arr) + " ]");
         }
 
         public void Sort(double[] arr) 

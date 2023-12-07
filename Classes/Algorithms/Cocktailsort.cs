@@ -10,7 +10,6 @@ namespace DataStructuresAndAlgorithms_InCSharp.Classes.Algorithms
         public void Sort(int[] arr)
         {
             cocktailSort(arr);
-            Console.WriteLine("[ " + string.Join(", ", arr) + " ]");
         }
 
         public void Sort(double[] arr)

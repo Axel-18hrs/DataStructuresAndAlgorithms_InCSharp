@@ -107,6 +107,7 @@ namespace DataStructuresAndAlgorithms_InCSharp.Classes.Operations.Algorithms
                 }
 
                 Console.ReadKey();
+                return;
 
             } while (true);
         }

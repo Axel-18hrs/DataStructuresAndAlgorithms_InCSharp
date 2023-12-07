@@ -43,7 +43,6 @@ namespace DataStructuresAndAlgorithms_InCSharp.Classes.Algorithms
                     }
                 }
             } while (gap > 1 || swapped);
-            Console.WriteLine("[ " + string.Join(", ", arr) + " ]");
         }
 
         public void Sort(double[] arr)

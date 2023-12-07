@@ -16,8 +16,8 @@ namespace DataStructuresAndAlgorithms_InCSharp.Classes.Algorithms
         }
 
         public void Sort(double[] arr) 
-        { 
-            PrintArray(BucketSort_Double(arr));
+        {
+            BucketSort_Double(arr);
         }
 
         static void PrintBucketState(List<double>[] buckets)
@@ -73,11 +73,6 @@ namespace DataStructuresAndAlgorithms_InCSharp.Classes.Algorithms
             }
 
             return array;
-        }
-
-        static void PrintArray(double[] arr)
-        {
-            Console.WriteLine("[ " + string.Join(", ", arr) + " ]");
         }
     }
 }

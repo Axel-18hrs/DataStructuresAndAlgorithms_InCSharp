@@ -15,7 +15,6 @@ namespace DataStructuresAndAlgorithms_InCSharp.Classes.Algorithms
             {
                 CountingSort(arr, exp);
             }
-            Console.WriteLine("[ " + string.Join(", ", arr) + " ]");
         }
         public void Sort(double[] arr)
         {

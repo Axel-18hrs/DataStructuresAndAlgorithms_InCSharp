@@ -25,7 +25,6 @@ namespace DataStructuresAndAlgorithms_InCSharp.Classes.Algorithms
                 // Intercambiar el mínimo encontrado con el primer elemento del subarreglo no ordenado
                 Swap(ref arr[i], ref arr[minIndex]);
             }
-            Console.WriteLine("[ " + string.Join(", ", arr) + " ]");
         }
 
         public void Sort(double[] arr)

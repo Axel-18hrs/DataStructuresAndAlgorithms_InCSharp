@@ -25,7 +25,6 @@ namespace DataStructuresAndAlgorithms_InCSharp.Classes.Algorithms
                 // Llamar a heapify en el subárbol reducido
                 Heapify(arr, i, 0);
             }
-            Console.WriteLine("[ " + string.Join(", ", arr) + " ]");
         }
 
         public void Sort(double[] arr)

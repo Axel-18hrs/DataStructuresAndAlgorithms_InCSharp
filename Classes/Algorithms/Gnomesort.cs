@@ -32,7 +32,6 @@ namespace DataStructuresAndAlgorithms_InCSharp.Classes.Algorithms
                     index--;
                 }
             }
-            Console.WriteLine("[ " + string.Join(", ", arr) + " ]");
         }
 
         public void Sort(double[] arr)
