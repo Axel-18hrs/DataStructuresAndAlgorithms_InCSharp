@@ -1,10 +1,22 @@
-﻿using System;
+﻿using DataStructuresAndAlgorithms_InCSharp.Interfaces.Algorithms;
+using System;
 
 namespace DataStructuresAndAlgorithms_InCSharp.Classes.Algorithms
 {
-    internal class Shellsort
+    internal class Shellsort : ImethodAlgorithms
     {
         public Shellsort() { }
+
+        public void Sort(int[] arr) 
+        { 
+            ShellSort(arr);
+            Console.WriteLine("[ " + string.Join(", ", arr) + " ]");
+        }
+
+        public void Sort(double[] arr)
+        {
+
+        }
 
         public void ShellSort(int[] array)
         {

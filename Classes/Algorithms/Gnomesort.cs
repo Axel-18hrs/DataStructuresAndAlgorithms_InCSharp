@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DataStructuresAndAlgorithms_InCSharp.Interfaces.Algorithms;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,11 +7,11 @@ using System.Threading.Tasks;
 
 namespace DataStructuresAndAlgorithms_InCSharp.Classes.Algorithms
 {
-    internal class Gnomesort
+    internal class Gnomesort : ImethodAlgorithms
     {
         public Gnomesort() { }
 
-        public static void Sort(int[] arr)
+        public void Sort(int[] arr)
         {
             int n = arr.Length;
             int index = 0;
@@ -31,9 +32,15 @@ namespace DataStructuresAndAlgorithms_InCSharp.Classes.Algorithms
                     index--;
                 }
             }
+            Console.WriteLine("[ " + string.Join(", ", arr) + " ]");
         }
 
-        private static void Swap(ref int a, ref int b)
+        public void Sort(double[] arr)
+        {
+            
+        }
+
+        private void Swap(ref int a, ref int b)
         {
             int temp = a;
             a = b;

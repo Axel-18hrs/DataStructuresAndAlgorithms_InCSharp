@@ -1,10 +1,22 @@
-﻿using System;
+﻿using DataStructuresAndAlgorithms_InCSharp.Interfaces.Algorithms;
+using System;
 
 namespace DataStructuresAndAlgorithms_InCSharp.Classes.Algorithms
 {
-    internal class Pigeonhole
+    internal class Pigeonhole : ImethodAlgorithms
     {
         public Pigeonhole() { }
+
+        public void Sort(int[] arr)
+        {
+            PigeonholeSort(arr);
+            Console.WriteLine("[ " + string.Join(", ", arr) + " ]");
+        }
+        
+        public void Sort(double[] arr)
+        {
+
+        }
 
         public void PigeonholeSort(int[] arr)
         {

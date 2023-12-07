@@ -1,10 +1,12 @@
-﻿namespace DataStructuresAndAlgorithms_InCSharp.Classes.Algorithms
+﻿using DataStructuresAndAlgorithms_InCSharp.Interfaces.Algorithms;
+
+namespace DataStructuresAndAlgorithms_InCSharp.Classes.Algorithms
 {
-    internal class Selectionsort
+    internal class Selectionsort : ImethodAlgorithms
     {
         public Selectionsort() { }
 
-        public static void Sort(int[] arr)
+        public void Sort(int[] arr)
         {
             int n = arr.Length;
 
@@ -23,6 +25,12 @@
                 // Intercambiar el mínimo encontrado con el primer elemento del subarreglo no ordenado
                 Swap(ref arr[i], ref arr[minIndex]);
             }
+            Console.WriteLine("[ " + string.Join(", ", arr) + " ]");
+        }
+
+        public void Sort(double[] arr)
+        {
+
         }
 
         private static void Swap(ref int a, ref int b)

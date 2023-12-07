@@ -1,10 +1,22 @@
-﻿using System;
+﻿using DataStructuresAndAlgorithms_InCSharp.Interfaces.Algorithms;
+using System;
 
 namespace DataStructuresAndAlgorithms_InCSharp.Classes.Algorithms
 {
-    internal class Mergesort
+    internal class Mergesort : ImethodAlgorithms
     {
         public Mergesort() { }
+
+        public void Sort(int[] arr)
+        {
+            MergeSort(arr);
+            Console.WriteLine("[ " + string.Join(", ", arr) + " ]");
+        }
+
+        public void Sort(double[] arr)
+        {
+
+        }
 
         public static void MergeSort(int[] arr)
         {

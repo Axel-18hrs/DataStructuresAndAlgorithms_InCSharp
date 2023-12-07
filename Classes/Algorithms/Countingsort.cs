@@ -1,10 +1,12 @@
-﻿namespace DataStructuresAndAlgorithms_InCSharp.Classes.Algorithms
+﻿using DataStructuresAndAlgorithms_InCSharp.Interfaces.Algorithms;
+
+namespace DataStructuresAndAlgorithms_InCSharp.Classes.Algorithms
 {
-    internal class Countingsort
+    internal class Countingsort : ImethodAlgorithms
     {
         public Countingsort() { }
 
-        public static void Sort(int[] arr)
+        public void Sort(int[] arr)
         {
             int n = arr.Length;
 
@@ -45,9 +47,16 @@
             {
                 arr[i] = output[i];
             }
+
+            Console.WriteLine("[ " + string.Join(", ", arr) + " ]");
         }
 
-        private static int FindMax(int[] arr)
+        public void Sort(double[] arr)
+        {
+
+        }
+
+        private int FindMax(int[] arr)
         {
             int max = arr[0];
             for (int i = 1; i < arr.Length; i++)

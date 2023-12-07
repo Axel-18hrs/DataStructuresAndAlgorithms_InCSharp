@@ -1,9 +1,10 @@
-﻿using System;
+﻿using DataStructuresAndAlgorithms_InCSharp.Interfaces.Algorithms;
+using System;
 using System.Collections.Generic;
 
 namespace DataStructuresAndAlgorithms_InCSharp.Classes.Algorithms
 {
-    internal class QuickSort
+    internal class QuickSort : ImethodAlgorithms
     {
         private static Random _Random = new Random();
 
@@ -18,7 +19,18 @@ namespace DataStructuresAndAlgorithms_InCSharp.Classes.Algorithms
             IndexTwo = Temporary;
         }
 
-        private static int Partition(ref int[] Array, int FirstIndex, int LastIndex)
+        public void Sort(int[] arr)
+        {
+            Quicksort(ref arr, 0, arr.Length - 1);
+            Console.WriteLine("[ " + string.Join(", ", arr) + " ]");
+        }
+
+        public void Sort(double[] arr) 
+        {
+
+        }
+
+        private int Partition(ref int[] Array, int FirstIndex, int LastIndex)
         {
             _ContainPartition++;
             int IndexPivot;
@@ -73,7 +85,7 @@ namespace DataStructuresAndAlgorithms_InCSharp.Classes.Algorithms
             return Right;
         }
 
-        public static void Quicksort(ref int[] Array, int FirstIndex, int LastIndex)
+        public void Quicksort(ref int[] Array, int FirstIndex, int LastIndex)
         {
             if (FirstIndex < LastIndex)
             {
@@ -84,7 +96,7 @@ namespace DataStructuresAndAlgorithms_InCSharp.Classes.Algorithms
             }
         }
 
-        public static void Print(ref int[] arr)
+        public void Print(ref int[] arr)
         {
             Quicksort(ref arr, 0, arr.Length - 1);
             Console.Write("\nResult: [ " + string.Join(", ", arr) + " ]");
@@ -94,7 +106,7 @@ namespace DataStructuresAndAlgorithms_InCSharp.Classes.Algorithms
             _ContainRecursive = 0;
         }
 
-        private static void PrintSwap(ref int[] array, int Left, int Right)
+        private void PrintSwap(ref int[] array, int Left, int Right)
         {
             Console.Write("[ ");
             for (int i = 0; i < array.Length; i++)
@@ -123,7 +135,7 @@ namespace DataStructuresAndAlgorithms_InCSharp.Classes.Algorithms
             Console.Write(" ]\n");
         }
 
-        public static int[] GenerateArray(int Min, int Length, int Val = 5)
+        public int[] GenerateArray(int Min, int Length, int Val = 5)
         {
             List<int> _List = new List<int>();
             for (int i = Min; i < Length; i++)

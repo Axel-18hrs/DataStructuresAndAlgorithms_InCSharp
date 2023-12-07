@@ -1,10 +1,22 @@
-﻿using System;
+﻿using DataStructuresAndAlgorithms_InCSharp.Interfaces.Algorithms;
+using System;
 
 namespace DataStructuresAndAlgorithms_InCSharp.Classes.Algorithms
 {
-    internal class Insertionsort
+    internal class Insertionsort : ImethodAlgorithms
     {
         public Insertionsort() { }
+
+        public void Sort(int[] arr)
+        {
+            InsertionSortAlgorithm(arr);
+            Console.WriteLine("[ " + string.Join(", ", arr) + " ]");
+        }
+
+        public void Sort(double[] arr)
+        {
+
+        }
 
         public void InsertionSortAlgorithm(int[] arr)
         {

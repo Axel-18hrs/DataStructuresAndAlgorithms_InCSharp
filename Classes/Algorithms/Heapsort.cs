@@ -1,10 +1,12 @@
-﻿namespace DataStructuresAndAlgorithms_InCSharp.Classes.Algorithms
+﻿using DataStructuresAndAlgorithms_InCSharp.Interfaces.Algorithms;
+
+namespace DataStructuresAndAlgorithms_InCSharp.Classes.Algorithms
 {
-    internal class Heapsort
+    internal class Heapsort : ImethodAlgorithms
     {
         public Heapsort() { }
 
-        public static void Sort(int[] arr)
+        public void Sort(int[] arr)
         {
             int n = arr.Length;
 
@@ -23,6 +25,12 @@
                 // Llamar a heapify en el subárbol reducido
                 Heapify(arr, i, 0);
             }
+            Console.WriteLine("[ " + string.Join(", ", arr) + " ]");
+        }
+
+        public void Sort(double[] arr)
+        {
+
         }
 
         private static void Heapify(int[] arr, int n, int i)

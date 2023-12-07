@@ -10,7 +10,7 @@ namespace DataStructuresAndAlgorithms_InCSharp.Classes.Algorithms
     {
         public Combsort() { }
 
-        public static void Sort(int[] arr)
+        public void Sort(int[] arr)
         {
             int n = arr.Length;
 
@@ -42,9 +42,15 @@ namespace DataStructuresAndAlgorithms_InCSharp.Classes.Algorithms
                     }
                 }
             } while (gap > 1 || swapped);
+            Console.WriteLine("[ " + string.Join(", ", arr) + " ]");
         }
 
-        private static void Swap(ref int a, ref int b)
+        public void Sort(double[] arr)
+        {
+
+        }
+
+        private void Swap(ref int a, ref int b)
         {
             int temp = a;
             a = b;

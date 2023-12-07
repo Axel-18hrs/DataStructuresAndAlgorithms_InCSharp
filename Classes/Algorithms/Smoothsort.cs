@@ -1,6 +1,8 @@
-﻿namespace DataStructuresAndAlgorithms_InCSharp.Classes.Algorithms
+﻿using DataStructuresAndAlgorithms_InCSharp.Interfaces.Algorithms;
+
+namespace DataStructuresAndAlgorithms_InCSharp.Classes.Algorithms
 {
-    internal class Smoothsort
+    internal class Smoothsort : ImethodAlgorithms
     {
         private int[] heap;
 
@@ -21,6 +23,12 @@
                 Swap(0, i);
                 SiftDown(0, i - 1);
             }
+            Console.WriteLine("[ " + string.Join(", ", arr) + " ]");
+        }
+
+        public void Sort(double[] arr)
+        {
+
         }
 
         private void Heapify(int i)

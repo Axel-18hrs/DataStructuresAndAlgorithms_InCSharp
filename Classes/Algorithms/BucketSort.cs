@@ -1,13 +1,24 @@
-﻿using System;
+﻿using DataStructuresAndAlgorithms_InCSharp.Interfaces.Algorithms;
+using System;
 using System.Collections.Generic;
 
 namespace DataStructuresAndAlgorithms_InCSharp.Classes.Algorithms
 {
-    internal class BucketSort
+    internal class BucketSort : ImethodAlgorithms
     {
         private static Random _rand = new Random();
 
         public BucketSort() { }
+
+        public void Sort(int[] arr) 
+        {
+            
+        }
+
+        public void Sort(double[] arr) 
+        { 
+            PrintArray(BucketSort_Double(arr));
+        }
 
         static void PrintBucketState(List<double>[] buckets)
         {
@@ -24,7 +35,7 @@ namespace DataStructuresAndAlgorithms_InCSharp.Classes.Algorithms
             Console.WriteLine();
         }
 
-        static void BucketSort_Double(double[] array)
+        static double[] BucketSort_Double(double[] array)
         {
             // Crear buckets vacíos
             List<double>[] buckets = new List<double>[array.Length];
@@ -60,15 +71,13 @@ namespace DataStructuresAndAlgorithms_InCSharp.Classes.Algorithms
                     array[k++] = item;
                 }
             }
+
+            return array;
         }
 
         static void PrintArray(double[] arr)
         {
-            foreach (var item in arr)
-            {
-                Console.Write(item + " ");
-            }
-            Console.WriteLine();
+            Console.WriteLine("[ " + string.Join(", ", arr) + " ]");
         }
     }
 }

@@ -1,14 +1,26 @@
-﻿using System.Collections.Generic;
+﻿using DataStructuresAndAlgorithms_InCSharp.Interfaces.Algorithms;
+using System.Collections.Generic;
 
 namespace DataStructuresAndAlgorithms_InCSharp.Classes.Algorithms
 {
-    internal class Cocktailsort
+    internal class Cocktailsort : ImethodAlgorithms
     {
         public Cocktailsort() { }
 
-        public void cocktailSort(List<int> arr)
+        public void Sort(int[] arr)
         {
-            int n = arr.Count;
+            cocktailSort(arr);
+            Console.WriteLine("[ " + string.Join(", ", arr) + " ]");
+        }
+
+        public void Sort(double[] arr)
+        {
+
+        }
+
+        public void cocktailSort(int[] arr)
+        {
+            int n = arr.Length;
             bool swapped = true;
             int start = 0;
             int end = n - 1;
@@ -43,7 +55,7 @@ namespace DataStructuresAndAlgorithms_InCSharp.Classes.Algorithms
             }
         }
 
-        private void Swap(List<int> arr, int i, int j)
+        private void Swap(int[] arr, int i, int j)
         {
             int temp = arr[i];
             arr[i] = arr[j];
