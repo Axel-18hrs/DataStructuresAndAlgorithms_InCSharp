@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DataStructuresAndAlgorithms_InCSharp.Interfaces.Algorithms;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace DataStructuresAndAlgorithms_InCSharp.Classes.Algorithms
 {
-    internal class Combsort
+    internal class Combsort : ImethodAlgorithms
     {
         public Combsort() { }
 
