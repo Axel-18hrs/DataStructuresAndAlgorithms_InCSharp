@@ -1,10 +1,12 @@
-﻿namespace DataStructuresAndAlgorithms_InCSharp.Classes.Algorithms
+﻿using DataStructuresAndAlgorithms_InCSharp.Interfaces.Algorithms;
+
+namespace DataStructuresAndAlgorithms_InCSharp.Classes.Algorithms
 {
-    internal class Radixsort
+    internal class Radixsort : ImethodAlgorithms
     {
         public Radixsort() { }
 
-        public static void Sort(int[] arr)
+        public void Sort(int[] arr)
         {
             int max = FindMax(arr);
 
@@ -14,8 +16,11 @@
                 CountingSort(arr, exp);
             }
         }
+        public void Sort(double[] arr)
+        {
 
-        private static void CountingSort(int[] arr, int exp)
+        }
+        private void CountingSort(int[] arr, int exp)
         {
             int n = arr.Length;
             int[] output = new int[n];
@@ -53,7 +58,7 @@
             }
         }
 
-        private static int FindMax(int[] arr)
+        private int FindMax(int[] arr)
         {
             int max = arr[0];
             for (int i = 1; i < arr.Length; i++)

@@ -11,10 +11,10 @@ namespace DataStructuresAndAlgorithms_InCSharp.Classes.Algorithms
 
         public QuickSort() { }
 
-        private static void Swap(ref int IndexOnew, ref int IndexTwo)
+        private static void Swap(ref int IndexOne, ref int IndexTwo)
         {
-            int Temporary = IndexOnew;
-            IndexOnew = IndexTwo;
+            int Temporary = IndexOne;
+            IndexOne = IndexTwo;
             IndexTwo = Temporary;
         }
 
@@ -41,6 +41,7 @@ namespace DataStructuresAndAlgorithms_InCSharp.Classes.Algorithms
                     break;
             }
             Swap(ref Array[FirstIndex], ref Array[IndexPivot]);
+
             PrintSwap(ref Array, FirstIndex, IndexPivot);
             _ContainExchange++;
             int Pivot = Array[FirstIndex];
@@ -72,22 +73,22 @@ namespace DataStructuresAndAlgorithms_InCSharp.Classes.Algorithms
             return Right;
         }
 
-        public static void quicksort(ref int[] Array, int FirstIndex, int LastIndex)
+        public static void Quicksort(ref int[] Array, int FirstIndex, int LastIndex)
         {
             if (FirstIndex < LastIndex)
             {
                 _ContainRecursive++;
                 int IndexPivot = Partition(ref Array, FirstIndex, LastIndex);
-                quicksort(ref Array, FirstIndex, IndexPivot - 1);
-                quicksort(ref Array, IndexPivot + 1, LastIndex);
+                Quicksort(ref Array, FirstIndex, IndexPivot - 1);
+                Quicksort(ref Array, IndexPivot + 1, LastIndex);
             }
         }
 
         public static void Print(ref int[] arr)
         {
-            quicksort(ref arr, 0, arr.Length - 1);
+            Quicksort(ref arr, 0, arr.Length - 1);
             Console.Write("\nResult: [ " + string.Join(", ", arr) + " ]");
-            Console.WriteLine("\nSwap: " + _ContainExchange + "\nParticiones: " + _ContainPartition + "\nRecursividad: " + _ContainRecursive);
+            Console.WriteLine("\nSwaps: " + _ContainExchange + "\nPartitions: " + _ContainPartition + "\nRecursion: " + _ContainRecursive);
             _ContainExchange = 0;
             _ContainPartition = 0;
             _ContainRecursive = 0;
@@ -122,20 +123,20 @@ namespace DataStructuresAndAlgorithms_InCSharp.Classes.Algorithms
             Console.Write(" ]\n");
         }
 
-        public static int[] GenerarVector(int Minon, int Lenght, int Val = 5)
+        public static int[] GenerateArray(int Min, int Length, int Val = 5)
         {
             List<int> _List = new List<int>();
-            for (int i = Minon; i < Lenght; i++)
+            for (int i = Min; i < Length; i++)
             {
                 if (i < Val)
                 {
-                    int NewValor = _Random.Next(Minon, Lenght + 1);
-                    if (_List.Contains(NewValor))
+                    int NewValue = _Random.Next(Min, Length + 1);
+                    if (_List.Contains(NewValue))
                     {
                         i--;
                         continue;
                     }
-                    _List.Add(NewValor);
+                    _List.Add(NewValue);
                 }
                 else
                 {

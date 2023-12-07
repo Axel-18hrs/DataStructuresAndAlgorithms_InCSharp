@@ -8,6 +8,7 @@ namespace DataStructuresAndAlgorithms_InCSharp.Interfaces.Algorithms
 {
     internal interface ImethodAlgorithms
     {
-        void Sorted();
+        void Sort(int[] array);
+        void Sort(double[] array);
     }
 }
