@@ -46,14 +46,5 @@ namespace DataStructuresAndAlgorithms_InCSharp.Classes.Algorithms
                 while (pigeonholes[j]-- > 0)
                     arr[index++] = j + min;
         }
-
-        public void PrintArray(int[] arr)
-        {
-            foreach (int num in arr)
-            {
-                Console.Write(num + " ");
-            }
-            Console.WriteLine();
-        }
     }
 }

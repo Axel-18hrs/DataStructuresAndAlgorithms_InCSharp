@@ -35,14 +35,5 @@ namespace DataStructuresAndAlgorithms_InCSharp.Classes.Algorithms
                 arr[j + 1] = key;
             }
         }
-
-        public void PrintArray(int[] arr)
-        {
-            foreach (var item in arr)
-            {
-                Console.Write(item + " ");
-            }
-            Console.WriteLine();
-        }
     }
 }

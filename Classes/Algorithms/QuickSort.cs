@@ -133,28 +133,5 @@ namespace DataStructuresAndAlgorithms_InCSharp.Classes.Algorithms
             }
             Console.Write(" ]\n");
         }
-
-        public int[] GenerateArray(int Min, int Length, int Val = 5)
-        {
-            List<int> _List = new List<int>();
-            for (int i = Min; i < Length; i++)
-            {
-                if (i < Val)
-                {
-                    int NewValue = _Random.Next(Min, Length + 1);
-                    if (_List.Contains(NewValue))
-                    {
-                        i--;
-                        continue;
-                    }
-                    _List.Add(NewValue);
-                }
-                else
-                {
-                    break;
-                }
-            }
-            return _List.ToArray();
-        }
     }
 }
