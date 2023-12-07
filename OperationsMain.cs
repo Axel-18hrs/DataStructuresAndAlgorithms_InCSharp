@@ -10,7 +10,7 @@ namespace DataStructuresAndAlgorithms_InCSharp
 {
     internal class OperationsMain
     {
-        public void MenuDataStructurs()
+        public static void MenuDataStructurs()
         {
             do
             {
@@ -50,14 +50,42 @@ namespace DataStructuresAndAlgorithms_InCSharp
             } while (true);
         }
 
-        public void MenuAlgorithms_()
+        public static void MenuAlgorithms_()
         {
             OperationsAlgorithm.MenuAlgorithms();
         }
 
-        public void MainDS()
+        public static void MainDS()
         {
+            do
+            {
+                Console.Clear();
+                Console.WriteLine("Select a data structure or algorithm:");
+                Console.WriteLine("1. Algorithms\n"
+                    + "2. Data Structures\n"
+                    + "0. Exit\n");
 
+                if (!int.TryParse(Console.ReadLine(), out int num))
+                {
+                    OperationsList.Deffault();
+                    continue;
+                }
+
+                switch (num)
+                {
+                    case 1:
+                        MenuAlgorithms_();
+                        break;
+                    case 2:
+                        MenuDataStructurs();
+                        break;
+                    case 0:
+                        return; // Exit the loop and method
+                    default:
+                        OperationsList.Deffault();
+                        break;
+                }
+            } while (true);
         }
     }
 }
