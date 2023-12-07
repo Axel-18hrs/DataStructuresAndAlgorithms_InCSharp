@@ -6,7 +6,6 @@ namespace DataStructuresAndAlgorithms_InCSharp.Classes.Algorithms
 {
     internal class BucketSort : ImethodAlgorithms
     {
-        private static Random _rand = new Random();
 
         public BucketSort() { }
 
