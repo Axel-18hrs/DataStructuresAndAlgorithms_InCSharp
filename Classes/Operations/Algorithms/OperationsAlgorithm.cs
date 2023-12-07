@@ -11,8 +11,8 @@ namespace DataStructuresAndAlgorithms_InCSharp.Classes.Operations.Algorithms
 {
     internal class OperationsAlgorithm
     {
-        private Random _rand = new Random();
-        public double[] GenerarVectorDouble(int Minon = 0, int Lenght = 10, int values = 5)
+        private static Random _rand = new Random();
+        public static double[] GenerarVectorDouble(int Minon = 0, int Lenght = 10, int values = 5)
         {
             List<double> _List = new List<double>();
 
@@ -31,7 +31,7 @@ namespace DataStructuresAndAlgorithms_InCSharp.Classes.Operations.Algorithms
             return _List.ToArray();
         }
 
-        public int[] GenerarVector(int Minon = 0, int Lenght = 10, int values = 5)
+        public static int[] GenerarVector(int Minon = 0, int Lenght = 10, int values = 5)
         {
             List<int> _List = new List<int>();
 
@@ -55,7 +55,7 @@ namespace DataStructuresAndAlgorithms_InCSharp.Classes.Operations.Algorithms
             return _List.ToArray();
         }
 
-        public void Algorithm(ImethodAlgorithms algorithm)
+        public static void Algorithm(ImethodAlgorithms algorithm)
         {
             do
             {
@@ -111,17 +111,37 @@ namespace DataStructuresAndAlgorithms_InCSharp.Classes.Operations.Algorithms
             } while (true);
         }
 
-        public void MenuAlgorithms()
+        public static void MenuAlgorithms()
         {
             do
             {
-                if (!int.TryParse(Console.ReadLine(), out int num))
+                Console.Clear();
+                Console.WriteLine("Select an algorithm:");
+                Console.WriteLine("1. Binary Tree Sort\n"
+                    + "2. Bubble Sort\n"
+                    + "3. Bucket Sort\n"
+                    + "4. Cocktail Sort\n"
+                    + "5. Comb Sort\n"
+                    + "6. Counting Sort\n"
+                    + "7. Gnome Sort\n"
+                    + "8. Heap Sort\n"
+                    + "9. Insertion Sort\n"
+                    + "10. Merge Sort\n"
+                    + "11. Pigeonhole Sort\n"
+                    + "12. Quick Sort\n"
+                    + "13. Radix Sort\n"
+                    + "14. Selection Sort\n"
+                    + "15. Shell Sort\n"
+                    + "16. Smooth Sort\n"
+                    + "0. Exit\n");
+
+                if (!int.TryParse(Console.ReadLine(), out int option))
                 {
                     OperationsList.Deffault();
                     continue;
                 }
 
-                switch (num)
+                switch (option)
                 {
                     case 1:
                         Algorithm(new Binarytreesort());
@@ -172,13 +192,12 @@ namespace DataStructuresAndAlgorithms_InCSharp.Classes.Operations.Algorithms
                         Algorithm(new Smoothsort());
                         break;
                     case 0:
-                        return;
+                        return; // Exit the loop and method
                     default:
+                        OperationsList.Deffault();
                         break;
                 }
-                Console.ReadKey();
             } while (true);
         }
-
     }
 }
