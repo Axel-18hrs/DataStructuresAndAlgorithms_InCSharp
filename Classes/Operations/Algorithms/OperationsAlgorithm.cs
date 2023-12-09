@@ -81,6 +81,13 @@ namespace DataStructuresAndAlgorithms_InCSharp.Classes.Operations.Algorithms
                     continue;
                 }
 
+                if ((algorithm is BucketSort || algorithm is Selectionsort) && minon < 0)
+                {
+                    Console.WriteLine("Only values greater than or equal to zero are accepted.");
+                    Console.ReadKey();
+                    continue;
+                }
+
                 if (algorithm is BucketSort)
                 {
                     double[] arr = GenerarVectorDouble(minon, length, values);
@@ -191,7 +198,7 @@ namespace DataStructuresAndAlgorithms_InCSharp.Classes.Operations.Algorithms
                         Algorithm(new Shellsort());
                         break;
                     case 16:
-                        Algorithm(new Smoothsort());
+                        Algorithm(new SmoothSort());
                         break;
                     case 0:
                         return;
