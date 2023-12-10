@@ -9,9 +9,22 @@ namespace DataStructuresAndAlgorithms_InCSharp.Classes.Algorithms
 {
     internal class Gnomesort : ImethodAlgorithms
     {
+        private int iterations = 0;
+
         public Gnomesort() { }
 
         public void Sort(int[] arr)
+        {
+            GnomeSort(arr);
+            Console.WriteLine($"Number of iterations: {iterations}");
+        }
+
+        public void Sort(double[] arr)
+        {
+            // Implementación para ordenar un array de doubles
+        }
+
+        private void GnomeSort(int[] arr)
         {
             int n = arr.Length;
             int index = 0;
@@ -30,13 +43,12 @@ namespace DataStructuresAndAlgorithms_InCSharp.Classes.Algorithms
                 {
                     Swap(ref arr[index], ref arr[index - 1]);
                     index--;
+
+                    // Print the array at each iteration
+                    Console.WriteLine("[ " + string.Join(", ", arr) + " ]");
+                    iterations++;
                 }
             }
-        }
-
-        public void Sort(double[] arr)
-        {
-            
         }
 
         private void Swap(ref int a, ref int b)

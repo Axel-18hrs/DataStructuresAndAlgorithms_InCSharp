@@ -4,9 +4,26 @@ namespace DataStructuresAndAlgorithms_InCSharp.Classes.Algorithms
 {
     internal class Heapsort : ImethodAlgorithms
     {
+        private int iterations = 0;
+        private static int recursions = 0;
+        private static int swaps = 0;
+
         public Heapsort() { }
 
         public void Sort(int[] arr)
+        {
+            HeapSort(arr);
+            Console.WriteLine($"Number of iterations: {iterations}");
+            Console.WriteLine($"Number of recursions: {recursions}");
+            Console.WriteLine($"Number of swaps: {swaps}");
+        }
+
+        public void Sort(double[] arr)
+        {
+            // Implementación para ordenar un array de doubles
+        }
+
+        private void HeapSort(int[] arr)
         {
             int n = arr.Length;
 
@@ -21,15 +38,14 @@ namespace DataStructuresAndAlgorithms_InCSharp.Classes.Algorithms
             {
                 // Mover la raíz actual al final
                 Swap(ref arr[0], ref arr[i]);
-
+                swaps++;
                 // Llamar a heapify en el subárbol reducido
                 Heapify(arr, i, 0);
+
+                // Print the array at each iteration
+                Console.WriteLine("[ " + string.Join(", ", arr) + " ]");
+                iterations++;
             }
-        }
-
-        public void Sort(double[] arr)
-        {
-
         }
 
         private static void Heapify(int[] arr, int n, int i)
@@ -57,6 +73,8 @@ namespace DataStructuresAndAlgorithms_InCSharp.Classes.Algorithms
 
                 // Recursivamente heapify el subárbol afectado
                 Heapify(arr, n, largest);
+                recursions++;
+                swaps++;
             }
         }
 
@@ -67,4 +85,6 @@ namespace DataStructuresAndAlgorithms_InCSharp.Classes.Algorithms
             b = temp;
         }
     }
+
+
 }
