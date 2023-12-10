@@ -105,7 +105,7 @@ namespace DataStructuresAndAlgorithms_InCSharp.Classes.Operations.Algorithms
                     int[] arr = GenerarVector(minon, length, values);
 
                     Console.WriteLine("\nUnordered array: ");
-                    Console.Write("[ " + string.Join(", ", arr) + " ]");
+                    Console.Write("[ " + string.Join(", ", arr) + " ]\n");
                     DateTime startTime = DateTime.Now;
                     algorithm.Sort(arr);
                     Console.WriteLine("\nSorted array: ");
@@ -153,7 +153,7 @@ namespace DataStructuresAndAlgorithms_InCSharp.Classes.Operations.Algorithms
                 switch (option)
                 {
                     case 1:
-                        Algorithm(new Binarytreesort());
+                        Algorithm(new BinaryTreeSort());
                         break;
                     case 2:
                         Algorithm(new BubbleSort());
@@ -162,7 +162,7 @@ namespace DataStructuresAndAlgorithms_InCSharp.Classes.Operations.Algorithms
                         Algorithm(new BucketSort());
                         break;
                     case 4:
-                        Algorithm(new Cocktailsort());
+                        Algorithm(new CocktailSort());
                         break;
                     case 5:
                         Algorithm(new Combsort());

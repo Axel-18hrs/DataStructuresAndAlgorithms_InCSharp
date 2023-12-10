@@ -3,29 +3,30 @@ using System.Collections.Generic;
 
 namespace DataStructuresAndAlgorithms_InCSharp.Classes.Algorithms
 {
-    internal class Cocktailsort : ImethodAlgorithms
+    internal class CocktailSort : ImethodAlgorithms
     {
-        public Cocktailsort() { }
+        public CocktailSort() { }
 
         public void Sort(int[] arr)
         {
-            cocktailSort(arr);
+            CocktailSortAlgorithm(arr);
         }
 
         public void Sort(double[] arr)
         {
-
+            // Implementación para ordenar un array de doubles
         }
 
-        public void cocktailSort(int[] arr)
+        private void CocktailSortAlgorithm(int[] arr)
         {
             int n = arr.Length;
             bool swapped = true;
             int start = 0;
             int end = n - 1;
+
             while (swapped)
             {
-                // Move from left to right
+                // Mover de izquierda a derecha
                 swapped = false;
                 for (int i = start; i < end; i++)
                 {
@@ -33,14 +34,18 @@ namespace DataStructuresAndAlgorithms_InCSharp.Classes.Algorithms
                     {
                         Swap(arr, i, i + 1);
                         swapped = true;
+                        Console.WriteLine("[ " + string.Join(", ", arr) + " ]");
                     }
                 }
+
                 if (!swapped)
                 {
                     break;
                 }
+
                 end--;
-                // Move from right to left
+
+                // Mover de derecha a izquierda
                 swapped = false;
                 for (int i = end - 1; i >= start; i--)
                 {
@@ -48,8 +53,10 @@ namespace DataStructuresAndAlgorithms_InCSharp.Classes.Algorithms
                     {
                         Swap(arr, i, i + 1);
                         swapped = true;
+                        Console.WriteLine("[ " + string.Join(", ", arr) + " ]");
                     }
                 }
+
                 start++;
             }
         }

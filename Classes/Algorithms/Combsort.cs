@@ -13,6 +13,16 @@ namespace DataStructuresAndAlgorithms_InCSharp.Classes.Algorithms
 
         public void Sort(int[] arr)
         {
+            CombSortAlgorithm(arr);
+        }
+
+        public void Sort(double[] arr)
+        {
+            // Implementación para ordenar un array de doubles
+        }
+
+        private void CombSortAlgorithm(int[] arr)
+        {
             int n = arr.Length;
 
             // Inicializar el tamaño del salto
@@ -40,14 +50,10 @@ namespace DataStructuresAndAlgorithms_InCSharp.Classes.Algorithms
                     {
                         Swap(ref arr[i], ref arr[i + gap]);
                         swapped = true;
+                        Console.WriteLine("[ " + string.Join(", ", arr) + " ]");
                     }
                 }
             } while (gap > 1 || swapped);
-        }
-
-        public void Sort(double[] arr)
-        {
-
         }
 
         private void Swap(ref int a, ref int b)

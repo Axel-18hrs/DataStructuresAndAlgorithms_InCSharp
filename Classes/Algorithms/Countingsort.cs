@@ -2,8 +2,10 @@
 
 namespace DataStructuresAndAlgorithms_InCSharp.Classes.Algorithms
 {
-    internal class Countingsort : ImethodAlgorithms
+    public class Countingsort : ImethodAlgorithms
     {
+        private static int iterations = 0;
+
         public Countingsort() { }
 
         public void Sort(int[] arr)
@@ -40,6 +42,10 @@ namespace DataStructuresAndAlgorithms_InCSharp.Classes.Algorithms
             {
                 output[count[arr[i]] - 1] = arr[i];
                 count[arr[i]]--;
+
+                // Imprimir el arreglo completo en cada intercambio
+                Console.WriteLine("[ " + string.Join(", ", output) + " ]");
+                iterations++; // Incrementa el número de iteraciones
             }
 
             // Copiar el arreglo de salida de vuelta al arreglo original
@@ -47,11 +53,13 @@ namespace DataStructuresAndAlgorithms_InCSharp.Classes.Algorithms
             {
                 arr[i] = output[i];
             }
+
+            Console.WriteLine($"Number of iterations: {iterations}");
         }
 
         public void Sort(double[] arr)
         {
-
+            // Implementación para ordenar un array de doubles
         }
 
         private int FindMax(int[] arr)
