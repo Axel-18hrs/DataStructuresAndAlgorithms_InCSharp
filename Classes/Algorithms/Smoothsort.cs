@@ -5,6 +5,8 @@ namespace DataStructuresAndAlgorithms_InCSharp.Classes.Algorithms
     public class SmoothSort : ImethodAlgorithms
     {
         private int[] heap;
+        private int swaps = 0;
+        private int iterations = 0;
 
         public SmoothSort() { }
 
@@ -22,12 +24,18 @@ namespace DataStructuresAndAlgorithms_InCSharp.Classes.Algorithms
             {
                 Swap(0, i);
                 SiftDown(0, i - 1);
+
+                // Print the array at each iteration
+                PrintArray(heap);
             }
+
+            Console.WriteLine($"Number of swaps: {swaps}");
+            Console.WriteLine($"Number of iterations: {iterations}");
         }
 
         public void Sort(double[] arr)
         {
-
+            // Implementación para ordenar un array de doubles
         }
 
         private void SiftDown(int root, int end)
@@ -57,6 +65,8 @@ namespace DataStructuresAndAlgorithms_InCSharp.Classes.Algorithms
                     Swap(root, swapIndex);
                     root = swapIndex;
                     leftChild = 2 * root + 1;
+                    swaps++; // Incrementa el número de intercambios
+                    iterations++; // Incrementa el número de iteraciones
                 }
             }
         }
@@ -66,6 +76,12 @@ namespace DataStructuresAndAlgorithms_InCSharp.Classes.Algorithms
             int temp = heap[i];
             heap[i] = heap[j];
             heap[j] = temp;
+        }
+
+        private void PrintArray(int[] arr)
+        {
+            Console.WriteLine("[ " + string.Join(", ", arr) + " ]");
+            iterations++;
         }
     }
 }

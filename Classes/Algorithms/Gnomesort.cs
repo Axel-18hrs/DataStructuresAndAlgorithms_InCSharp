@@ -10,6 +10,7 @@ namespace DataStructuresAndAlgorithms_InCSharp.Classes.Algorithms
     internal class Gnomesort : ImethodAlgorithms
     {
         private int iterations = 0;
+        private int swaps = 0;
 
         public Gnomesort() { }
 
@@ -17,6 +18,7 @@ namespace DataStructuresAndAlgorithms_InCSharp.Classes.Algorithms
         {
             GnomeSort(arr);
             Console.WriteLine($"Number of iterations: {iterations}");
+            Console.WriteLine($"Number of swaps: {swaps}");
         }
 
         public void Sort(double[] arr)
@@ -56,6 +58,7 @@ namespace DataStructuresAndAlgorithms_InCSharp.Classes.Algorithms
             int temp = a;
             a = b;
             b = temp;
+            swaps++;
         }
     }
 }

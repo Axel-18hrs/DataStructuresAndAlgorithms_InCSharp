@@ -4,22 +4,28 @@ namespace DataStructuresAndAlgorithms_InCSharp.Classes.Algorithms
 {
     internal class Radixsort : ImethodAlgorithms
     {
+        private int iterations = 0;
+
         public Radixsort() { }
 
         public void Sort(int[] arr)
         {
             int max = FindMax(arr);
 
-            // Aplicar Radix Sort para cada posición del dígito
+            // Apply Radix Sort for each digit position
             for (int exp = 1; max / exp > 0; exp *= 10)
             {
                 CountingSort(arr, exp);
             }
+
+            Console.WriteLine($"Number of iterations: {iterations}");
         }
+
         public void Sort(double[] arr)
         {
-
+            // Implementación para ordenar un array de doubles
         }
+
         private void CountingSort(int[] arr, int exp)
         {
             int n = arr.Length;
@@ -56,6 +62,14 @@ namespace DataStructuresAndAlgorithms_InCSharp.Classes.Algorithms
             {
                 arr[i] = output[i];
             }
+
+            PrintArray(arr);
+        }
+
+        private void PrintArray(int[] arr)
+        {
+            Console.WriteLine("[ " + string.Join(", ", arr) + " ]");
+            iterations++;
         }
 
         private int FindMax(int[] arr)

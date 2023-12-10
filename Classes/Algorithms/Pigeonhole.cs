@@ -5,19 +5,24 @@ namespace DataStructuresAndAlgorithms_InCSharp.Classes.Algorithms
 {
     internal class Pigeonhole : ImethodAlgorithms
     {
+        private int swaps = 0;
+        private int iterations = 0;
+
         public Pigeonhole() { }
 
         public void Sort(int[] arr)
         {
             PigeonholeSort(arr);
+            Console.WriteLine($"Number of swaps: {swaps}");
+            Console.WriteLine($"Number of iterations: {iterations}");
         }
-        
+
         public void Sort(double[] arr)
         {
-
+            // Implementación para ordenar un array de doubles
         }
 
-        public void PigeonholeSort(int[] arr)
+        private void PigeonholeSort(int[] arr)
         {
             int min = arr[0];
             int max = arr[0];
@@ -44,7 +49,12 @@ namespace DataStructuresAndAlgorithms_InCSharp.Classes.Algorithms
 
             for (j = 0; j < range; j++)
                 while (pigeonholes[j]-- > 0)
+                {
                     arr[index++] = j + min;
+                    swaps++; // Incrementa el número de intercambios
+                    iterations++; // Incrementa el número de iteraciones
+                    Console.WriteLine("[ " + string.Join(", ", arr) + " ]");
+                }
         }
     }
 }

@@ -5,19 +5,26 @@ namespace DataStructuresAndAlgorithms_InCSharp.Classes.Algorithms
 {
     internal class Mergesort : ImethodAlgorithms
     {
+        private int swaps = 0;
+        private int iterations = 0;
+        private int recursions = 0;
+
         public Mergesort() { }
 
         public void Sort(int[] arr)
         {
             MergeSort(arr);
+            Console.WriteLine($"Number of swaps: {swaps}");
+            Console.WriteLine($"Number of iterations: {iterations}");
+            Console.WriteLine($"Number of recursions: {recursions}");
         }
 
         public void Sort(double[] arr)
         {
-
+            // Implementación para ordenar un array de doubles
         }
 
-        public static void MergeSort(int[] arr)
+        private void MergeSort(int[] arr)
         {
             if (arr.Length < 2)
                 return;
@@ -32,9 +39,10 @@ namespace DataStructuresAndAlgorithms_InCSharp.Classes.Algorithms
             MergeSort(left);
             MergeSort(right);
             Merge(arr, left, right);
+            recursions++; // Incrementa el número de recursiones
         }
 
-        public static void Merge(int[] arr, int[] left, int[] right)
+        private void Merge(int[] arr, int[] left, int[] right)
         {
             int i = 0, j = 0, k = 0;
 
@@ -51,6 +59,9 @@ namespace DataStructuresAndAlgorithms_InCSharp.Classes.Algorithms
                     j++;
                 }
                 k++;
+                swaps++; // Incrementa el número de intercambios
+                iterations++; // Incrementa el número de iteraciones
+                Console.WriteLine("[ " + string.Join(", ", arr) + " ]");
             }
 
             while (i < left.Length)
@@ -58,6 +69,9 @@ namespace DataStructuresAndAlgorithms_InCSharp.Classes.Algorithms
                 arr[k] = left[i];
                 i++;
                 k++;
+                swaps++; // Incrementa el número de intercambios
+                iterations++; // Incrementa el número de iteraciones
+                Console.WriteLine("[ " + string.Join(", ", arr) + " ]");
             }
 
             while (j < right.Length)
@@ -65,6 +79,9 @@ namespace DataStructuresAndAlgorithms_InCSharp.Classes.Algorithms
                 arr[k] = right[j];
                 j++;
                 k++;
+                swaps++; // Incrementa el número de intercambios
+                iterations++; // Incrementa el número de iteraciones
+                Console.WriteLine("[ " + string.Join(", ", arr) + " ]");
             }
         }
     }
